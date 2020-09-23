@@ -1,0 +1,510 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+    z-index:30;
+}
+
+body {
+    background-color: rgb(32, 32, 32);
+
+}
+
+#formulaire {
+    position: absolute;
+    top: 0px;
+    right:  0;
+
+    display: none;
+    width: 70%;
+    text-align: left;
+    border: solid #206585 5px;
+}
+
+#synopsis small {
+    font-style: italic;
+}
+
+.videos {
+    /* width: 100%;
+    height: 80%;
+    padding:0 1%; */
+}
+
+.videos iframe {
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+}
+
+#synopsis {
+    background-color: rgb(199, 212, 218);
+}
+
+#bandeannonce {
+    width: 75%;
+}
+
+#bandeannonce iframe {
+    width: 100%;
+    margin-top: 0;
+}
+
+#affiche {
+    width: 25%;
+}
+
+#filmwatchlist #iconewatchlist {
+    font-size: 3rem;
+    color: rgb(161, 161, 161);
+    margin-right: 1rem;
+}
+
+#filmwatchlist {
+    width: 15%;
+    display: flex;
+    justify-content: right;
+}
+
+#bandeannonce iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#synopsis span {
+    font-style: italic;
+}
+
+#sectionvideo i,
+#synopsis i {
+    font-size: 10px;
+}
+
+.vide {
+    border: 15px solid rgb(32, 32, 32);
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    display: block;
+}
+
+#input {
+    margin-top: 50px;
+}
+
+
+/**button {
+    border: 2px solid rgb(56, 81, 165) !important;
+
+}**/
+
+.inputradus,
+.navradus {
+    border-radius: 5px;
+}
+
+.slider img {
+    height: 700px !important;
+}
+
+#img {
+    margin-top: 12px;
+    width: 330px;
+    height: 230px;
+}
+
+#img:hover {
+    filter: brightness(1.15);
+    /*transition: all 1s ease;*/
+}
+
+#img2 {
+    width: 700px;
+    height: 90px;
+}
+
+#img2:hover,
+img:hover {
+    filter: brightness(1.15)
+}
+
+nav a {
+    font-size: 1rem;
+    color: rgb(9, 98, 214) !important;
+    filter: brightness(0);
+    font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+nav a:hover {
+    filter: brightness(2);
+}
+
+.slider img {
+    height: 680px;
+}
+
+#filmavenir {
+    width: 30%;
+    margin: 20px 0;
+}
+
+#prochainement li {
+    border-top: 1px rgb(187, 187, 187) dashed;
+    list-style: none;
+    padding: 10px 0;
+    color: rgb(32, 32, 32);
+}
+
+#prochainement li:hover {
+    background-color: rgb(32, 32, 32);
+    transition: all 0.1s ease-in;
+    color: white;
+}
+
+#prochainement-top:hover {
+    color: rgb(9, 173, 214) !important;
+}
+
+#prochainement a {
+    text-decoration: none;
+    color: black;
+}
+
+#prochainement a:hover {
+    color: blue;
+    transition: 0.1s;
+}
+
+ul {
+    padding-left: 0;
+    margin-bottom: 1px;
+}
+
+.bgc-titre {
+    background-color: rgb(6, 130, 187);
+    color: white !important;
+    box-shadow: 8px 8px 0px black;
+}
+
+.bgc-titre1 {
+    background-color: rgb(6, 130, 187);
+    padding: 5px 10px;
+    display: inline-block;
+    color: white;
+    box-shadow: 5px 5px 0px black;
+}
+
+main .page {
+    background-color: white;
+}
+
+#nouveautés {
+    background-color: red;
+}
+
+#infotexte {
+    height: 25%;
+    display: flex;
+    background-color: rgb(43, 43, 44);
+    padding-top: 1%;
+}
+
+#infosection1 {
+    color: white;
+}
+
+#infos {
+    width: 85%;
+}
+
+
+/*#categorie*/
+
+.segment {
+    border-right: rgb(56, 56, 56) 3px solid;
+}
+
+#bookmark {
+    width: 65%;
+    box-shadow: 8px 8px 0px black;
+}
+
+.listefilms {
+    height: 100%;
+}
+
+.filminfos a,
+.filminfos span {
+    margin-top: 0;
+}
+
+.filminfos span {
+    margin-left: 10px;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+
+.filminfos>p {
+    margin-bottom: 0.3rem;
+}
+
+.filminfos a {
+    display: inline-block;
+    height: 60px;
+    width: 100%;
+    color: black;
+}
+
+.watchlist {
+    color: blue;
+    background-color: rgb(238, 232, 232);
+    border-radius: 2px;
+;
+    margin: 5px;
+    display: flex;
+    padding: 10px;
+}
+
+.watchlist p {
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+.couleurfont {
+    background-color: white;
+    position: relative;
+}
+
+#categorie {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#media {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 7rem;
+    background-color: #2b2b2c;
+    margin-top: 2px;
+}
+
+#note1 {
+    padding: 5px 0 5px 5px;
+    margin-left: 10px;
+}
+
+#notez {
+    border-left: rgb(56, 56, 56) 3px solid;
+}
+
+#titrenote {
+    display: flex;
+    justify-content: space-between;
+}
+
+.active-pink-4 input[type=text]:focus:not([readonly]) {
+    border: 1px solid #0242a3;
+    box-shadow: 0 0 0 1px #0143a7;
+}
+
+#note {
+    display: flex;
+}
+
+header {
+    background: linear-gradient(rgb(19, 137, 192), white);
+}
+
+.peli {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 200px;
+    opacity: 0.09;
+}
+
+footer {
+    color: white;
+    max-width: 100%;
+    color: #e6e6e6;
+    background: #222;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.iconesfooter {
+    color: rgb(6, 130, 187);
+    font-size: 35px;
+    letter-spacing: 30px;
+}
+
+#up {
+    font-size: 70px;
+    color: rgb(6, 130, 187)
+}
+
+#gototop {
+    position: relative;
+    bottom: 50px;
+    right: 30px;
+}
+
+.rotation {
+    transform: rotate(90deg);
+}
+
+.small {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+#prochainement-top {
+    background-color: rgb(6, 130, 187);
+    padding: 10px;
+    text-align: center;
+    box-shadow: 3px 3px 0px rgb(68, 62, 62);
+}
+
+
+/**.redi{
+
+    object-fit: cover;
+
+}**/
+
+.bonus {
+    background-color: rgb(6, 130, 187);
+}
+
+.presse {
+    width: 40%;
+}
+
+#critiquespresse small {
+    display: inline-block;
+    width: 70%;
+    padding: 2px;
+}
+
+.critique {
+    /*position: absolute;*/
+    margin-top: 30px;
+    border-bottom: 0.2px rgb(240, 234, 234) solid;
+}
+
+.user p {
+    line-height: 0.7rem;
+    margin-top: 10px;
+}
+.page2 h2{
+    text-decoration: underline;
+}
+#critiquespresse h2 {
+    margin-bottom: 50px;
+}
+
+.fin {
+    border-top: #fff dashed 1px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#videotitre {
+    background-color: rgb(5, 5, 5);
+    margin: 0 auto;
+    width: 300px;
+}
+
+iframe {
+    width: 100%;
+    margin-top: 10px;
+    border: 0;
+}
+
+h1 {
+    background-color: #0682bb;
+    width: 80%;
+    color: white;
+    text-align: center;
+    box-shadow: 3px 3px 0px rgb(68, 62, 62);
+    padding: 5px;
+}
+
+.deroulant {
+    color: rgb(13, 29, 80);
+    transition-duration: 10s;
+}
+
+#droitelogin {
+    filter: brightness(0);
+}
+
+#droitelogin:hover {
+    color: turquoise !important;
+}
+
+
+/* .peli{
+position: absolute;
+width: 30%;
+display: block;
+
+} */
+
+#cookie {
+    position: fixed;
+    display: block;
+    max-height: 460px;
+    width: 100%;
+    top: 241px;
+    left: 0px;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 25px;
+    border-radius: 35px;
+    color: black;
+    border: 5px groove #3198c8;
+    display: block;
+    overflow: auto;
+}
+
+#cookie p {
+    font-size: 1rem;
+}
+
+#video-carousel .carousel-control-prev-icon,
+#video-carousel .carousel-control-next-icon {
+    display: none;
+}
+
+#cgu{
+    letter-spacing: 0;
+}
+
+/* @media screen and (max-width:560px){
+    #media{
+        flex-direction: column;
+        width: 100%;
+    }
+} */
+
+#redigez form {
+    width: 80%;
+    margin: auto;
+}
+
+@media screen and (min-width: 500px) {
+    #redigez form {
+        width: 300px;
+    }
+    #formulaire {
+
+        right:75px;
+        width: 300px !important;
+    }
+
+    h1 {
+        width: 450px;
+    }
+}

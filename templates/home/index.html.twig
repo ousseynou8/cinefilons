@@ -1,0 +1,532 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+
+        <main class="#">
+
+            <!--SECTION 1 HEADER-->
+            <div class="container couleurfont">
+                <div class="row my-0 ">
+                    <div class="col-lg-8 pl-0 slider">
+                        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner slider">
+                                <div class="carousel-item active" data-interval="10000">
+                                    <img src="img/img1.jpg" class="d-block w-100 redi" alt="...">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/img2.jpg" class="d-block w-100   " alt="...">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/img3.jpg" class="d-block w-100   " alt="...">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/img4.jpg" class="d-block w-100 " alt="...">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/img5.jpg" class="d-block w-100   " alt="...">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/img6.webp" class="d-block w-100  " alt="...">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/img7.webp" class="d-block w-100   " alt="...">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/img8.jpg" class="d-block w-100   " alt="...">
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img src="img/img9.jpg" class="d-block w-100   " alt="...">
+                                </div>
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleInterval" role="button"
+                               data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleInterval" role="button"
+                               data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <article id="prochainement">
+                            <h3 id="prochainement-top" class="text-light font-weight-lighter">PROCHAINEMENT</h3>
+
+                            <iframe width="560" height="215" src="https://www.youtube.com/embed/JQcl2FHUle0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            <a href="#">
+                                <ul>
+                                    <li>30 jours max</li>
+                                </ul>
+                            </a>
+                            <a href="#">
+                                <ul>
+                                    <li>T’as pécho ?</li>
+                                </ul>
+                            </a>
+                            <a href="#">
+                                <ul>
+                                    <li>Jurassic World: Dominion</li>
+                                </ul>
+                            </a>
+                            <a href="#">
+                                <ul>
+                                    <li>Tenet</li>
+                                </ul>
+                            </a>
+                            <a href="#">
+                                <ul>
+                                    <li>Mulan</li>
+                                </ul>
+                            </a>
+                            <a href="#">
+                                <ul>
+                                    <li>Greenland</li>
+                                </ul>
+                            </a>
+                            <a href="#">
+                                <ul>
+                                    <li>Les Blagues de Toto</li>
+                                </ul>
+                            </a>
+                            <a href="#">
+                                <ul>
+                                    <li>Tenet</li>
+                                </ul>
+                            </a>
+                            <a href="#">
+                                <ul>
+                                    <li><u>Tous les films à venir</u></li>
+                                </ul>
+                            </a>
+
+                        </article>
+                    </div>
+                </div>
+                <!-- Identification -->
+                <div id="formulaire" class="card">
+
+                    <h5 class="card-header info-color white-text text-center py-4">
+                        <strong style=" font-size: 30px;">S'identifier</strong>
+                    </h5>
+
+                    <!--Card Bootstrap-->
+                    <div class="card-body px-lg-5">
+
+                        <!-- Form -->
+                        <form class="text-center" style="color: #020303;" action="#!">
+
+                            <!-- E-mail -->
+                            <div class="md-form">
+                                <label for="materialSubscriptionFormEmail">E-mail</label>
+                                <input type="email" id="materialSubscriptionFormEmail" class="form-control">
+
+                            </div>
+
+                            <!-- Mot de passe -->
+                            <div class="md-form mt-0">
+                                <label for="materialSubscriptionFormPasswords">Mot de passe</label>
+                                <input type="text" id="materialSubscriptionFormPasswords" class="form-control">
+
+                            </div>
+
+
+                            <!-- logguage -->
+                            <button
+                                    class="btn btn-outline-primary btn-rounded btn-block  btn-info z-depth-0 my-4 waves-effect text-white"
+                                    type="submit">Identifiez-vous</button>
+
+                            <button
+                                    class="btn btn-outline-primary btn-dark text-white btn-rounded btn-block z-depth-0 my-4 waves-effect"
+                                    type="submit">Créez un compte</button>
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Train vide -->
+            <div class="vide">
+
+            </div>
+            <!--SECTION 2 TOP FILMS NOUVEAUTES-->
+            <section class="listefilms">
+                <div class="container couleurfont p-3">
+                    <h1 id="news">TOP NOUVEAUTÉS</h1>
+                    <div class="row py-4">
+
+                        <div class="col-12 col-lg-3  ">
+                            <div class="film">
+
+                                {% for film in list_films %}
+
+                                <p>{{ film }}</p>
+
+                                {% endfor %}
+
+                                <a href="#"><img src="img-section/nouveautés/ete85.jpg" class="w-100 img-responsive"
+                                                 alt="img"></a>
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>3.3</span></p>
+                                    <a href="#">Été 85</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3  ">
+                            <div class="film">
+                                <a href="#"><img src="img-section/nouveautés/LaventureDesMarguerites.jpg"
+                                                 class="w-100 img-responsive" alt="img"></a>
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>3.7</span></p>
+                                    <a href="#">L'aventure des Marguerite</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 ">
+                            <div class="film">
+                                <a href="#"><img src="img-section/nouveautés/MonNinjaEtMoi.jpg" class="w-100 img-responsive"
+                                                 alt=""></a>
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>3.6</span></p>
+                                    <a href="#">Mon ninja et moi</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3  ">
+                            <div class="film">
+                                <a href="#"><img src="img-section/nouveautés/2908996.jpg" class="w-100 img-responsive"
+                                                 alt=""></a>
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>2.4</span></p>
+                                    <a href="#">Divorce club</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Train vide -->
+            <div class="vide">
+
+            </div>
+            <!--SECTION 3 TOP FILMS US-->
+            <section class="listefilms">
+
+                <div class="container couleurfont p-3">
+                    <h1 id="us"> TOP FILMS US</h1>
+                    <div class="row py-4">
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <a href="#"><img src="img-section/films-us/Le_Parrain.jpg" class="w-100 img-responsive"
+                                                 alt=""></a>
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.8</span></p>
+                                    <a href="#">Le Parrain</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <a href="#"><img src="img-section/films-us/Matrix.jpg" class="w-100 img-responsive"
+                                                 alt=""></a>
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.6</span></p>
+                                    <a href="#">Matrix</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <a href="page1.html"><img src="img-section/films-us/joker.png" class="w-100 img-responsive"
+                                                          id="joker" alt=""></a>
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.6</span></p>
+                                    <a href="page1.html">Le Joker</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="page1.html">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <a href="#"><img src="img-section/films-us/Seven.jpg" class="w-100 img-responsive"
+                                                 alt=""></a>
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.5</span></p>
+                                    <a href="#">Seven</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Train vide -->
+            <div class="vide">
+
+            </div>
+            <!--SECTION 4 TOP FILMS FRANCAIS-->
+            <section class="listefilms">
+                <div class="container couleurfont p-3">
+                    <h1 id="french">TOP FILMS FRANÇAIS</h1>
+
+                    <div class="row py-4">
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <img src="img-section/films-français/Le-diner-de-cons.jpg" class="w-100 img-responsive"
+                                     alt="">
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
+                                    <a href="#">Le Dîner de cons</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <img src="img-section/films-français/La-Grande-Vadrouille.jpg" class="w-100 img-responsive"
+                                     alt="">
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.6</span></p>
+                                    <a href="#">La Grande Vadrouille</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <img src="img-section/films-français/La_Haine.jpg" class="w-100 img-responsive" alt="">
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.5</span></p>
+                                    <a href="#">La Haine</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <img src="img-section/films-français/Leon.jpg" class="w-100 img-responsive" alt="">
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.5</span></p>
+                                    <a href="#">Leon</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Train vide -->
+            <div class="vide">
+
+            </div>
+            <!--SECTION 5 TOP FILMS ENFANTS-->
+            <section class="listefilms">
+                <div class="container couleurfont p-3">
+                    <h1 id="kids">TOP FILMS POUR ENFANTS</h1>
+
+                    <div class="row py-4">
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <img src="img-section/nanars/2908996.jpg" class="w-100 img-responsive" alt="">
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
+                                    <a href="#">Le Roi Lion</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <img src="img-section/nanars/nousleschiens2.jpg" class="w-100 img-responsive" alt="">
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.5</span></p>
+                                    <a href="#">Nous les chiens</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <img src="img-section/nanars/1992182.jpg" class="w-100 img-responsive" alt="">
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.5</span></p>
+                                    <a href="#">En avant</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3  ">
+                            <div class="film">
+                                <img src="img-section/nanars/0746079.jpg" class="w-100 img-responsive" alt="">
+                                <div class="filminfos px-1">
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.4</span></p>
+                                    <a href="#">Sonic</a>
+
+                                </div>
+                                <div class="watchlist">
+                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Train vide -->
+            <div class="vide">
+
+            </div>
+
+            <section id="videos" class="bonus">
+
+                <div class="container p-4">
+                    <!--bonus-->
+
+                    <h1 class="text-center text-white mb-4" id="videotitre">BANDES-ANNONCES</h1>
+
+                    <div class="row text-center ">
+
+                        <div class="col-lg-6">
+
+                            <iframe width="560" height="415" src="https://www.youtube.com/embed/m9eIeQdIebE"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <iframe width="560" height="415" src="https://www.youtube.com/embed/IANO56K_UVw"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Carousel BONUS-->
+                <div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!--MODIFICATIONS LI-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#video-carousel-example" data-slide-to="0" class="active"></li>
+                        <!--<li data-target="#video-carousel-example" data-slide-to="1"></li> -->
+                        <!-- <li data-target="#video-carousel-example" data-slide-to="2"></li> -->
+                    </ol>
+
+                    <!--LE SLIDE-->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <video class="video-fluid w-100" autoplay loop muted>
+                                <source src="video/ROGUEWARFAREOfficialTrailer(2020)ActionMovieHD.mp4"
+                                        type="video/mp4" />
+                            </video>
+                        </div>
+                        <!-- <div class="carousel-item">
+          <video class="video-fluid" autoplay loop muted>
+            <source src="https://mdbootstrap.com/img/video/forest.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div> -->
+                        <a class="carousel-control-prev" href="#video-carousel-example" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#video-carousel-example" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                    </div>
+                </div>
+                <!--Carousel BONUS-->
+
+            </section>
+
+            <!-- Train vide -->
+            <div class="vide">
+
+            </div>
+
+            <!--UP IN TOP
+            <div id="gototop">
+                <a href="#top">
+                    <i class="fas fa-caret-up" id="up"></i>
+                </a>
+            </div>-->
+        </main>
+{% endblock %}

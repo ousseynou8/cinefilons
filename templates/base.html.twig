@@ -2,11 +2,203 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Cinéfilons - PROJET{% endblock %}</title>
+        <!-- GOOGLE FONTS-->
+        <link href="https://fonts.googleapis.com/css2?family=Condiment&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Fondamento&display=swap" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Playfair+Display&display=swap"
+              rel="stylesheet">
+
+
+        <!-- ICONS-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+              integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA=="
+              crossorigin="anonymous" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Le Filon des amoureux du Cinéma pour les petits et les grands. Cinéfilons est la référence en matière de Cinéma !">
+        <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+
+
+
+        <!--BOOTSRAP4-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!--ANIMATE-->
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+        <!--CSS-->
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <!--JQUERY LINK ET SCRIPT-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="script-jquery.js"></script>
+
     </head>
     <body>
+    <header>
+
+        <!--HEADER-->
+        <header>
+
+            <div>
+                <audio class="audio" preload="auto" autoplay>
+                    <source src="music/cinefilonsmusic-compositer-yao.konan.mp3" type="audio/mpeg">
+
+                </audio>
+            </div>
+
+            <div class="container">
+
+                <div class="row">
+                    <img src="img/peli.png" alt="pelicule" class="peli">
+                    <div class="col-lg-5">
+                        <a href=" {{ path('home') }}">
+                            <img src="img/bn.png" alt="icone" id="img"
+                                 class="animate__animated animate__backInLeft hoverable d-block pb-2 pr-2 pl-2">
+                        </a>
+                    </div>
+                    <div class="col-lg-7">
+
+                        <form class="active-pink-3 active-pink-4">
+
+                            <input class="fas fa-search form-control mb-5 inputradus" type="text" id="input"
+                                   placeholder="&laquo; Filez à la recherche du CINÉFILON &raquo;" aria-label="Search"
+                                   style="font-family: 'Roboto Condensed', sans-serif ">
+                        </form>
+
+                        <img src="img/lefilondesamoureux.png" alt="image le filon des amoureux" id="img2"
+                             class="mr-5 d-block w-100 animate__animated animate__backInRight p-0">
+
+                        <!-- <marquee direction="left" class="deroulant" scrollamount="5" loop="1">Bienvenue à nos amis Cinéphiles !!! Excellente visite à vous et  laissons place au 7ème Art...</marquee> -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-light">
+                <nav class="navbar navbar-expand-lg navbar-light container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse  " id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="#news">TOP NOUVEAUTÉS EN SALLE</a>
+                            <a class="nav-item nav-link" href="#us">TOP FILMS US</a>
+                            <a class="nav-item nav-link" href="#french">TOP FILMS FRANÇAIS</a>
+                            <a class="nav-item nav-link" href="#kids">TOP FILMS POUR ENFANTS</a>
+                            <a class="nav-item nav-link" href="#videotitre">BANDES-ANNONCES</a>
+                        </div>
+                        <!--LOGIN-->
+
+                        <a href="#" id="droitelogin">
+
+                            <p class="moncine font-weight-normal ml-5 pl-5 text-dark"> MON
+                                CINÉFILON<span class="fas fa-user pl-2 pt-3"></span></p>
+                        </a>
+
+                    </div>
+                </nav>
+            </div>
+
+
+        </header>
+
+
+
+    </header>
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+    <!--FOOTER-->
+    <footer class="page-footer font-small special-color-dark pt-3">
+
+        <div class="container iconesfooter mb-4 pt-1">
+
+
+
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a href="https://www.facebook.com/" class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://twitter.com/?lang=fr" class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://www.google.com/" class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://fr.linkedin.com/" class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+
+                <li class="list-inline-item">
+                <li class="list-inline-item">
+                    <!-- <a href="page2.html"><button id="blueee" class="blueee btn btn-light btn-sm text-white btn-outline-primary mx-1" type="button">CGU</button></a> -->
+                    <a id="cgu" href="page2.html" class="btn btn-primary btn-rounded btn-sm text-center">CGU</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container fin">
+
+            <div class="row">
+
+                <small class="small col-lg-12 mt-3 mb-3">© 2020, <em>CINÉFILONS</em> pour WebForce3.
+                    Cette structure codée, est mise à disposition des membres de la commision afin de valider notre
+                    précieux
+                    projet.
+                    Il est préférable voire même formellement déconseillé de récupérer ce projet à des fins
+                    commerciales.
+                    Les autorisations au-delà du champ de cette licence peuvent être obtenues auprès de <em>CINÉFILONS
+                        ACADEMY</em> .
+                    Logo créé par l'Equipe <em>CINÉFILONS FAMILY</em> .</small>
+
+            </div>
+
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-5">Register for free</h5>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#!" class="btn btn-outline-white btn-rounded text-light">Sign up!</a>
+                </li>
+            </ul>
+            <div class="col-sm-12 mb-5"><a href="{{ path('home') }}"><img src="img/bn-small.png" alt="image small"></a>©</div>
+            <p><small class="text-ce
+            .03+nter"> Les dévéloppeurs sont Messieurs: <br>
+                    Hakim CHOUIOUKH - Konan YAO - Ousseynou FOFANA </small></p>
+        </div>
+    </footer>
+
+        {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                    crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                    crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+                    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+                    crossorigin="anonymous"></script>
+            <script src="{{ asset('assets/js/script.js') }}"></script>
+
+        {% endblock %}
     </body>
 </html>

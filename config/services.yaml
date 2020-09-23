@@ -4,6 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    partner_key: '100ED1DA33EB'
+    secret_key: '1a1ed8c1bed24d60ae3472eed1da33eb'
 
 services:
     # default configuration for services in *this* file
@@ -26,6 +28,12 @@ services:
     App\Controller\:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
+
+    App\Allocine\AllocineApi:
+        arguments:
+            $partner_key: '%partner_key%'
+            $secret_key: '%secret_key%'
+
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

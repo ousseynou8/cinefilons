@@ -209,68 +209,30 @@
             <section class="listefilms">
 
                 <div class="container couleurfont p-3">
-                    <h1 id="us"> TOP FILMS US</h1>
+                    <h1 id="news">TOP FILMS US</h1>
                     <div class="row py-4">
-                        <div class="col-lg-3  ">
-                            <div class="film">
-                                <a href="#"><img src="img-section/films-us/Le_Parrain.jpg" class="w-100 img-responsive"
-                                                 alt=""></a>
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>4.8</span></p>
-                                    <a href="#">Le Parrain</a>
+                        {% for film in top_us %}
+                            <div class="col-12 col-lg-3  ">
 
+                                <div class="film">
+                                    <img src="{{ resize(film.poster, 300, 300) }}" class="w-100 img-responsive" alt="">
+                                    <div class="filminfos px-1">
+                                        <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
+                                        <a href="#">{{ film.titre }}</a>
+
+                                    </div>
+                                    <div class="watchlist">
+                                        <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                    </div>
                                 </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
+
+
                             </div>
-                        </div>
-
-                        <div class="col-lg-3  ">
-                            <div class="film">
-                                <a href="#"><img src="img-section/films-us/Matrix.jpg" class="w-100 img-responsive"
-                                                 alt=""></a>
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>4.6</span></p>
-                                    <a href="#">Matrix</a>
-
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3  ">
-                            <div class="film">
-                                <a href="page1.html"><img src="img-section/films-us/joker.png" class="w-100 img-responsive"
-                                                          id="joker" alt=""></a>
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>4.6</span></p>
-                                    <a href="page1.html">Le Joker</a>
-
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="page1.html">Watchlist</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3  ">
-                            <div class="film">
-                                <a href="#"><img src="img-section/films-us/Seven.jpg" class="w-100 img-responsive"
-                                                 alt=""></a>
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>4.5</span></p>
-                                    <a href="#">Seven</a>
-
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
 
                     </div>
                 </div>
+
             </section>
             <!-- Train vide -->
             <div class="vide">
@@ -278,68 +240,33 @@
             </div>
             <!--SECTION 4 TOP FILMS FRANCAIS-->
             <section class="listefilms">
+
+
                 <div class="container couleurfont p-3">
-                    <h1 id="french">TOP FILMS FRANÇAIS</h1>
-
+                    <h1 id="news">TOP FILMS FRANÇAIS</h1>
                     <div class="row py-4">
-                        <div class="col-lg-3  ">
-                            <div class="film">
-                                <img src="img-section/films-français/Le-diner-de-cons.jpg" class="w-100 img-responsive"
-                                     alt="">
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
-                                    <a href="#">Le Dîner de cons</a>
+                        {% for film in top_francais %}
+                            <div class="col-12 col-lg-3  ">
 
+                                <div class="film">
+                                    <img src="{{ resize(film.poster, 300, 300) }}" class="w-100 img-responsive" alt="">
+                                    <div class="filminfos px-1">
+                                        <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
+                                        <a href="#">{{ film.titre }}</a>
+
+                                    </div>
+                                    <div class="watchlist">
+                                        <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                                    </div>
                                 </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
+
+
                             </div>
-                        </div>
-
-                        <div class="col-lg-3  ">
-                            <div class="film">
-                                <img src="img-section/films-français/La-Grande-Vadrouille.jpg" class="w-100 img-responsive"
-                                     alt="">
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>4.6</span></p>
-                                    <a href="#">La Grande Vadrouille</a>
-
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3  ">
-                            <div class="film">
-                                <img src="img-section/films-français/La_Haine.jpg" class="w-100 img-responsive" alt="">
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>4.5</span></p>
-                                    <a href="#">La Haine</a>
-
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3  ">
-                            <div class="film">
-                                <img src="img-section/films-français/Leon.jpg" class="w-100 img-responsive" alt="">
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>4.5</span></p>
-                                    <a href="#">Leon</a>
-
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
 
                     </div>
                 </div>
+
             </section>
             <!-- Train vide -->
             <div class="vide">

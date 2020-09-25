@@ -83,6 +83,7 @@ class ScrapAllocineApiCommand extends Command
             $movie->setType($movieApi['genre'][0]['$']);
             $movie->setPoster($movieApi['poster']['href']);
             $movie->setNote(0);
+            $movie->setNationalite($movieApi['nationality'][0]['$']);
             $this->objectManager->persist($movie);
         }
 

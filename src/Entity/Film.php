@@ -67,6 +67,11 @@ class Film
      */
     private $poster;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $nationalite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -188,6 +193,18 @@ class Film
     public function setPoster(string $poster): self
     {
         $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getNationalite(): ?string
+    {
+        return $this->nationalite;
+    }
+
+    public function setNationalite(string $nationalite): self
+    {
+        $this->nationalite = $nationalite;
 
         return $this;
     }

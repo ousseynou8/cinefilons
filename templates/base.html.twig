@@ -102,7 +102,7 @@
                         </div>
                         <!--LOGIN-->
 
-                        <a href="#" id="droitelogin">
+                        <a href="{{ path('app_login') }}" id="droitelogin">
 
                             <p class="moncine font-weight-normal ml-5 pl-5 text-dark"> MON
                                 CINÉFILON<span class="fas fa-user pl-2 pt-3"></span></p>
@@ -115,13 +115,15 @@
 
         </header>
 
+<div class="container">
 
 
-        {% block body %}
+    {% block body %}
 
 
 
-        {% endblock %}
+    {% endblock %}
+</div>
 
     <!--FOOTER-->
     <footer class="page-footer font-small special-color-dark pt-3">

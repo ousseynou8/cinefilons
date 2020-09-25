@@ -20,19 +20,6 @@ class FilmRepository extends ServiceEntityRepository
     }
 
 
-       /**
-       * @return Film[] Returns an array of Film objects
-      */
-
-    public function findByExampleField()
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.type = :Comédie')
-
-            ->getQuery()
-            ->getResult()
-        ;
-    }
 
 
 

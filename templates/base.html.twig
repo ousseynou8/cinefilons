@@ -44,7 +44,7 @@
 
     </head>
     <body>
-    <header>
+
 
         <!--HEADER-->
         <header>
@@ -92,11 +92,13 @@
                     </button>
                     <div class="collapse navbar-collapse  " id="navbarNavAltMarkup">
                         <div class="navbar-nav">
+                            {% block nav %}
                             <a class="nav-item nav-link" href="#news">TOP NOUVEAUTÉS EN SALLE</a>
                             <a class="nav-item nav-link" href="#us">TOP FILMS US</a>
                             <a class="nav-item nav-link" href="#french">TOP FILMS FRANÇAIS</a>
                             <a class="nav-item nav-link" href="#kids">TOP FILMS POUR ENFANTS</a>
                             <a class="nav-item nav-link" href="#videotitre">BANDES-ANNONCES</a>
+
                         </div>
                         <!--LOGIN-->
 
@@ -105,7 +107,7 @@
                             <p class="moncine font-weight-normal ml-5 pl-5 text-dark"> MON
                                 CINÉFILON<span class="fas fa-user pl-2 pt-3"></span></p>
                         </a>
-
+                        {% endblock %}
                     </div>
                 </nav>
             </div>
@@ -115,9 +117,11 @@
 
 
 
-    </header>
+        {% block body %}
 
-        {% block body %}{% endblock %}
+
+
+        {% endblock %}
 
     <!--FOOTER-->
     <footer class="page-footer font-small special-color-dark pt-3">
@@ -151,7 +155,7 @@
                 <li class="list-inline-item">
                 <li class="list-inline-item">
                     <!-- <a href="page2.html"><button id="blueee" class="blueee btn btn-light btn-sm text-white btn-outline-primary mx-1" type="button">CGU</button></a> -->
-                    <a id="cgu" href="page2.html" class="btn btn-primary btn-rounded btn-sm text-center">CGU</a>
+                    <a id="cgu" href="{{ path('conditions') }}" class="btn btn-primary btn-rounded btn-sm text-center">CGU</a>
                 </li>
             </ul>
         </div>
@@ -197,7 +201,7 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
                     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
                     crossorigin="anonymous"></script>
-            <script src="{{ asset('assets/js/script.js') }}"></script>
+
 
         {% endblock %}
     </body>

@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Allocine\AllocineApi;
+use App\Entity\Film;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -13,7 +14,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class ScrapAllocineApiCommand extends Command
 {
-    protected static $defaultName = 'ScrapAllocineApiCommand';
+    protected static $defaultName = 'app:scrap';
 
     /**
      * @var EntityManagerInterface
@@ -61,9 +62,31 @@ class ScrapAllocineApiCommand extends Command
 
         $json = $this->allocine->getMovieList();
 
-        $data = json_decode($json);
+        $data = json_decode($json, true);
 
-        dump($data);
+        foreach ($data['feed']['movie'] as $movieApi) {
+            $movie = new Film();
+            $movie->setTitre($movieApi['originalTitle']);
+            if(isset($movieApi['movieCertificate'])) {
+                $movie->setClassification($movieApi['movieCertificate']['certificate']['$']);
+            }
+            if(isset($movieApi['link'])) {
+                foreach ($movieApi['link'] as $link) {
+                    if($link['rel'] === 'aco:web_pressreviews') {
+                        $movie->setCritiquesPresse($link['href']);
+                        break;
+                    }
+                }
+            }
+            $movie->setDateDeSortie($movieApi['release']['releaseDate']);
+            $movie->setSynopsis($movieApi['synopsisShort']);
+            $movie->setType($movieApi['genre'][0]['$']);
+            $movie->setPoster($movieApi['poster']['href']);
+            $movie->setNote(0);
+            $this->objectManager->persist($movie);
+        }
+
+        $this->objectManager->flush();
 
         $io->success('Hello world');
 

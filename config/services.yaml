@@ -6,6 +6,7 @@
 parameters:
     partner_key: '100ED1DA33EB'
     secret_key: '1a1ed8c1bed24d60ae3472eed1da33eb'
+    resize_cache: 'resize-cache'
 
 services:
     # default configuration for services in *this* file
@@ -33,6 +34,11 @@ services:
         arguments:
             $partner_key: '%partner_key%'
             $secret_key: '%secret_key%'
+
+    App\Service\ResizeImageManager:
+        arguments:
+            $cacheFolder: '%resize_cache%'
+
 
 
     # add more service definitions when explicit configuration is needed

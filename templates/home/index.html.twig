@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {% endblock %}
+{% block title %} Accueil{% endblock %}
 
 {% block body %}
 
     <div class="container">
 
+        <div class="text-light">
+
+        </div>
 
         <main class="#">
 
@@ -170,22 +173,19 @@
 
             </div>
             <!--SECTION 2 TOP FILMS NOUVEAUTES-->
+
             <section class="listefilms">
                 <div class="container couleurfont p-3">
                     <h1 id="news">TOP NOUVEAUTÉS</h1>
                     <div class="row py-4">
 
                         <div class="col-12 col-lg-3  ">
+
                             <div class="film">
-
                                 {% for film in list_films %}
-
-                                <p>{{ film }}</p>
-
+                                    <img src="{{ resize(film.poster, 300, 300) }}" alt="">
+                                    <p>{{ film.synopsis }}</p>
                                 {% endfor %}
-
-                                <a href="#"><img src="img-section/nouveautés/ete85.jpg" class="w-100 img-responsive"
-                                                 alt="img"></a>
                                 <div class="filminfos px-1">
                                     <p><i class="fas fa-star color text-warning"></i><span>3.3</span></p>
                                     <a href="#">Été 85</a>
@@ -242,6 +242,7 @@
                     </div>
                 </div>
             </section>
+
             <!-- Train vide -->
             <div class="vide">
 
@@ -529,4 +530,13 @@
                 </a>
             </div>-->
         </main>
+    </div>
+{% endblock %}
+
+
+
+{% block javascripts %}
+
+<script src="{{ asset('assets/js/script.js') }}"></script>
+
 {% endblock %}

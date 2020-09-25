@@ -48,7 +48,7 @@ class Film
     private $classification;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $synopsis;
 
@@ -68,7 +68,7 @@ class Film
     private $poster;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $nationalite;
 

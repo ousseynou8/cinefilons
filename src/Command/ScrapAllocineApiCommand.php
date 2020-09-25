@@ -79,11 +79,19 @@ class ScrapAllocineApiCommand extends Command
                 }
             }
             $movie->setDateDeSortie($movieApi['release']['releaseDate']);
-            $movie->setSynopsis($movieApi['synopsisShort']);
+
+            if(isset($movieApi['synopsisShort'])) {
+                $movie->setSynopsis($movieApi['synopsisShort']);
+            }
+
             $movie->setType($movieApi['genre'][0]['$']);
             $movie->setPoster($movieApi['poster']['href']);
             $movie->setNote(0);
+
+            if(isset($movieApi['nationality'][0]['$'])){
             $movie->setNationalite($movieApi['nationality'][0]['$']);
+            }
+            
             $this->objectManager->persist($movie);
         }
 

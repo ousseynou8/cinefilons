@@ -178,66 +178,24 @@
                 <div class="container couleurfont p-3">
                     <h1 id="news">TOP NOUVEAUTÉS</h1>
                     <div class="row py-4">
-
+                        {% for film in top_nouveaute %}
                         <div class="col-12 col-lg-3  ">
 
                             <div class="film">
-                                {% for film in list_films %}
-                                    <img src="{{ resize(film.poster, 300, 300) }}" alt="">
-                                    <p>{{ film.synopsis }}</p>
-                                {% endfor %}
+                                <img src="{{ resize(film.poster, 300, 300) }}" class="w-100 img-responsive" alt="">
                                 <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>3.3</span></p>
-                                    <a href="#">Été 85</a>
+                                    <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
+                                    <a href="#">{{ film.titre }}</a>
 
                                 </div>
                                 <div class="watchlist">
                                     <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-lg-3  ">
-                            <div class="film">
-                                <a href="#"><img src="img-section/nouveautés/LaventureDesMarguerites.jpg"
-                                                 class="w-100 img-responsive" alt="img"></a>
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>3.7</span></p>
-                                    <a href="#">L'aventure des Marguerite</a>
 
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-3 ">
-                            <div class="film">
-                                <a href="#"><img src="img-section/nouveautés/MonNinjaEtMoi.jpg" class="w-100 img-responsive"
-                                                 alt=""></a>
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>3.6</span></p>
-                                    <a href="#">Mon ninja et moi</a>
 
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-12 col-lg-3  ">
-                            <div class="film">
-                                <a href="#"><img src="img-section/nouveautés/2908996.jpg" class="w-100 img-responsive"
-                                                 alt=""></a>
-                                <div class="filminfos px-1">
-                                    <p><i class="fas fa-star color text-warning"></i><span>2.4</span></p>
-                                    <a href="#">Divorce club</a>
-
-                                </div>
-                                <div class="watchlist">
-                                    <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
 
                     </div>
                 </div>

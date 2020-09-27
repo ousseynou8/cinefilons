@@ -14,7 +14,7 @@ class HomeController extends AbstractController
      */
     public function index(FilmRepository $filmRepository, AllocineApi $allocineApi)
     {
-        $list = $allocineApi->getMovieList();
+        //$list = $allocineApi->getMovieList();
         //dd(json_decode($list));
         $data = $filmRepository->findAll();
         $topNouveaute = $filmRepository->findBy([], ['dateDeSortie' => 'DESC', 'note' => 'DESC'], 8);
@@ -29,6 +29,7 @@ class HomeController extends AbstractController
             'top_us' => $topFilmsUs,
             'top_francais' => $topFilmsFrancais,
             'top_filmsenfants' => $topFilmsEnfants
+
         ]);
     }
 

@@ -90,7 +90,7 @@ class AllocineApi
     {
         $params = [
             'partner' => $this->_partner_key,
-            'count'=>500,
+            'count'=>1000,
             'filter'=>'nowshowing',
             'page'=>1,
             'order' => 'datedesc',

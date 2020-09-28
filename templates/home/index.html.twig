@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Accueil{% endblock %}
+{% block title %} Accueil {% endblock %}
+
+
 
 {% block body %}
 
@@ -265,10 +267,10 @@
                             <div class="col-12 col-lg-3  ">
 
                                 <div class="film">
-                                    <a href="#"> <img src="{{ resize(film.poster, 300, 350) }}" class="w-100 img-responsive" alt=""></a>
+                                    <a href="{{ path('film', {id : film.id})}} "> <img src="{{ resize(film.poster, 300, 350) }}" class="w-100 img-responsive" alt=""></a>
                                     <div class="filminfos px-1">
                                         <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
-                                        <a href="#">{{ film.titre }}</a>
+                                        <a href="{{ path('film', {id : film.id}) }}">{{ film.titre }}</a>
 
                                     </div>
                                     <div class="watchlist">

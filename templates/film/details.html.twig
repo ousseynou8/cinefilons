@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Details {% endblock %}
+
+{% block nav %}
+
+fhhfhfhfhhf
+
+{% endblock %}
+
+{% block body %}
+
+
+    <div id="infosection1" class="col-lg-8 p-3">
+        <div id="infotexte" class="w-100">
+            <div id="filmwatchlist">
+                <p><img src="{{ asset('img/bookmark-solid-svg.png')}}" alt="bookmark" id="bookmark"></p>
+
+
+            </div>
+            <div id="infos">
+                <div id="titrenote" class="mb-0 pb-0">
+                    <h2 class="mb-5 pl-2 pr-1 bgc-titre">{{ film.titre }}</h2>
+                    <div id="note" class="pr-4 pb-3">
+                        <p class="mr-3 item2 h4" id="note1"><i class="fas fa-star color text-warning"></i> {{ film.note }}<span class="h6 text-white-50">/5</span></p>
+                        <p class="p-1 mb-5 h4" id="notez"><i class="far fa-star"></i><span class="h6"> Notez
+                                            ce film</span></p>
+                    </div>
+
+                </div>
+                <div id="categorie" class=" text-center  mt-0 mb-0">
+                    <p class="pr-2 mr-2 segment ">{{ film.classification }}</p>
+                    <p class="pr-2 mr-2 segment">{{ film.nationalite }}</p>
+                    <p class="pr-2 mr-2 segment">{{ film.type }}</p>
+                    <p class="pr-2 mr-2 segment1">{{ film.dateDeSortie }}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="media">
+            <div id="affiche">
+                <img src="{{ resize(film.poster, 300, 350) }}" alt="joker">
+            </div>
+
+            <div id="bandeannonce">
+                <iframe src="https://www.youtube.com/embed/OoTx1cYC5u8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+
+{% endblock %}

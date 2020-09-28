@@ -79,6 +79,11 @@ class ScrapAllocineApiCommand extends Command
                 }
             }
             $movie->setDateDeSortie($movieApi['release']['releaseDate']);
+            $movie->setRealisateur($movieApi['castingShort']['directors']);
+            $movie->setActeurs($movieApi['castingShort']['actors']);
+            $movie->setTrailer($movieApi['trailerEmbed']);
+
+
 
             if(isset($movieApi['synopsisShort'])) {
                 $movie->setSynopsis($movieApi['synopsisShort']);
@@ -90,7 +95,12 @@ class ScrapAllocineApiCommand extends Command
             if(isset($movieApi['nationality'][0]['$'])){
             $movie->setNationalite($movieApi['nationality'][0]['$']);
             }
-            
+
+            $movie->setActeurs($movieApi['link'][3]['href']);
+            $movie->setActeurs($movieApi['link'][4]['href']);
+            $movie->setActeurs($movieApi['link'][5]['href']);
+            $movie->setActeurs($movieApi['link'][6]['href']);
+            $movie->setActeurs($movieApi['link'][7]['href']);
             $this->objectManager->persist($movie);
         }
 

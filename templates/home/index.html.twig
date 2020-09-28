@@ -59,97 +59,19 @@
                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
                             <a href="#">
+                                {% for film in top_nouveaute %}
                                 <ul>
-                                    <li>30 jours max</li>
+                                    <li>{{ film.titre }}</li>
                                 </ul>
+                                {% endfor %}
                             </a>
-                            <a href="#">
-                                <ul>
-                                    <li>T’as pécho ?</li>
-                                </ul>
-                            </a>
-                            <a href="#">
-                                <ul>
-                                    <li>Jurassic World: Dominion</li>
-                                </ul>
-                            </a>
-                            <a href="#">
-                                <ul>
-                                    <li>Tenet</li>
-                                </ul>
-                            </a>
-                            <a href="#">
-                                <ul>
-                                    <li>Mulan</li>
-                                </ul>
-                            </a>
-                            <a href="#">
-                                <ul>
-                                    <li>Greenland</li>
-                                </ul>
-                            </a>
-                            <a href="#">
-                                <ul>
-                                    <li>Les Blagues de Toto</li>
-                                </ul>
-                            </a>
-                            <a href="#">
-                                <ul>
-                                    <li>Tenet</li>
-                                </ul>
-                            </a>
-                            <a href="#">
-                                <ul>
-                                    <li><u>Tous les films à venir</u></li>
-                                </ul>
-                            </a>
+
 
                         </article>
                     </div>
                 </div>
                 <!-- Identification -->
-                <div id="formulaire" class="card">
 
-                    <h5 class="card-header info-color white-text text-center py-4">
-                        <strong style=" font-size: 30px;">S'identifier</strong>
-                    </h5>
-
-                    <!--Card Bootstrap-->
-                    <div class="card-body px-lg-5">
-
-                        <!-- Form -->
-                        <form class="text-center" style="color: #020303;" action="#!">
-
-                            <!-- E-mail -->
-                            <div class="md-form">
-                                <label for="materialSubscriptionFormEmail">E-mail</label>
-                                <input type="email" id="materialSubscriptionFormEmail" class="form-control">
-
-                            </div>
-
-                            <!-- Mot de passe -->
-                            <div class="md-form mt-0">
-                                <label for="materialSubscriptionFormPasswords">Mot de passe</label>
-                                <input type="text" id="materialSubscriptionFormPasswords" class="form-control">
-
-                            </div>
-
-
-                            <!-- logguage -->
-                            <button
-                                    class="btn btn-outline-primary btn-rounded btn-block  btn-info z-depth-0 my-4 waves-effect text-white"
-                                    type="submit">Identifiez-vous</button>
-
-                            <button
-                                    class="btn btn-outline-primary btn-dark text-white btn-rounded btn-block z-depth-0 my-4 waves-effect"
-                                    type="submit">Créez un compte</button>
-
-                        </form>
-
-
-                    </div>
-
-                </div>
 
             </div>
             <!-- Train vide -->

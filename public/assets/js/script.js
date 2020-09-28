@@ -28,23 +28,23 @@ btnThree.onclick = function(){
 
 
 let droiteLogin = document.getElementById("droitelogin");
-console.log(droiteLogin, "droite login test");
+//console.log(droiteLogin, "droite login test");
 
 let formulaire = document.getElementById("formulaire");
-console.log(formulaire,"formulaire");
+//console.log(formulaire,"formulaire");
 
-droiteLogin.addEventListener("click", function(e){
-    e.preventDefault();
-    console.log("test add event");
-    if(formulaire.style.display == "none"){
-        formulaire.style.display = "block";
+droiteLogin.addEventListener("click", function(){
+    //e.preventDefault();
+    //console.log("test add event");
+    if(formulaire.style.display == "block"){
+        formulaire.style.display = "none";
         formulaire.style.animation = 'animate__fadeInBottomRight';
         formulaire.style.animationDuration = '1s';
         formulaire.style.margin = '0 0.5rem';
 
     }else{
 
-        formulaire.style.display = "none";
+        formulaire.style.display = "block";
         formulaire.style.animation = 'animate__fadeInBottomRight';
         formulaire.style.animationDuration = '1s';
         formulaire.style.margin = '0 0.5rem';

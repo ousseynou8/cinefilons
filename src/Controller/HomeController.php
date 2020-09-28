@@ -21,6 +21,7 @@ class HomeController extends AbstractController
         $topFilmsUs = $filmRepository->findBy(['nationalite' => 'U.S.A.'], ['note' => 'DESC'], 4);
         $topFilmsFrancais = $filmRepository->findBy(['nationalite' => 'France'], ['note' => 'DESC'], 4);
         $topFilmsEnfants = $filmRepository->findBy(['classification' => 'A partir de 3 ans'], ['note' => 'DESC'], 4);
+        $topSlider = $filmRepository->findBy(['dateDeSortie' => '2020-09-23'], ['note' => 'ASC'], 6);
 
         //dump($data['feed']['movie'][0]['production']);
         //dd(json_decode($data));
@@ -30,6 +31,7 @@ class HomeController extends AbstractController
             'top_us' => $topFilmsUs,
             'top_francais' => $topFilmsFrancais,
             'top_filmsenfants' => $topFilmsEnfants,
+            'top_slider' => $topSlider
 
 
         ]);

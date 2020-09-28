@@ -4,7 +4,6 @@
 
 {% block body %}
 
-    <div class="container">
 
         <div class="text-light">
 
@@ -16,27 +15,15 @@
             <div class="container couleurfont">
                 <div class="row my-0 ">
                     <div class="col-lg-8 pl-0 slider">
-                        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+
+                        <div id="carouselExampleInterval"  data-interval="5000" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner slider">
-                                <div class="carousel-item active" data-interval="10000">
-                                    <img src="img/img1.jpg" class="d-block w-100 redi" alt="...">
+                                {% for film in top_slider %}
+                                <div class="carousel-item{% if loop.index==1%} active{% endif %}">
+                                    <img src="{{ film.poster }}" class="d-block w-100 img-responsive" alt="First slide">
                                 </div>
 
-                                <div class="carousel-item active">
-                                    <img src="img/img8.jpg" class="d-block w-100   " alt="...">
-                                </div>
-
-                                <div class="carousel-item active">
-                                    <img src="img/img3.jpg" class="d-block w-100   " alt="...">
-                                </div>
-
-                                <div class="carousel-item active">
-                                    <img src="img/img4.jpg" class="d-block w-100 " alt="...">
-                                </div>
-
-                                <div class="carousel-item active">
-                                    <img src="img/img5.jpg" class="d-block w-100   " alt="...">
-                                </div>
+                               {% endfor %}
 
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleInterval" role="button"
@@ -49,8 +36,15 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
+
+
+
                         </div>
                     </div>
+
+
+
+
                     <div class="col-lg-4 text-center">
                         <article id="prochainement">
                             <h3 id="prochainement-top" class="text-light font-weight-lighter">PROCHAINEMENT</h3>
@@ -58,51 +52,51 @@
                             <iframe width="560" height="215" src="https://www.youtube.com/embed/JQcl2FHUle0"
                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
-                            <a href="#">
+                            <a href="https://www.youtube.com/watch?v=L4WwZfH3-yA">
                                 <ul>
                                     <li>30 jours max</li>
                                 </ul>
                             </a>
-                            <a href="#">
+                            <a href="https://www.youtube.com/watch?v=tZ8a8TO2TSc">
                                 <ul>
                                     <li>T’as pécho ?</li>
                                 </ul>
                             </a>
-                            <a href="#">
+                            <a href="https://www.youtube.com/watch?v=lVYwe2htD-s">
                                 <ul>
                                     <li>Jurassic World: Dominion</li>
                                 </ul>
                             </a>
-                            <a href="#">
+                            <a href="https://www.youtube.com/results?search_query=tenet+trailer">
                                 <ul>
                                     <li>Tenet</li>
                                 </ul>
                             </a>
-                            <a href="#">
+                            <a href="https://www.youtube.com/watch?v=KK8FHdFluOQ">
                                 <ul>
                                     <li>Mulan</li>
                                 </ul>
                             </a>
-                            <a href="#">
+                            <a href="https://www.youtube.com/watch?v=vz-gdEL_ae8">
                                 <ul>
                                     <li>Greenland</li>
                                 </ul>
                             </a>
-                            <a href="#">
+                            <a href="https://www.youtube.com/watch?v=IANO56K_UVw&t=18s">
                                 <ul>
                                     <li>Les Blagues de Toto</li>
                                 </ul>
                             </a>
-                            <a href="#">
+                            <a href="https://www.youtube.com/watch?v=5zdBG-iGfes">
                                 <ul>
-                                    <li>Tenet</li>
+                                    <li>Kingsman</li>
                                 </ul>
                             </a>
-                            <a href="#">
+
                                 <ul>
-                                    <li><u>Tous les films à venir</u></li>
+                                    <li><u> Restez connecté !</u></li>
                                 </ul>
-                            </a>
+
 
                         </article>
                     </div>
@@ -172,7 +166,7 @@
                                     <a href="#">{{ film.titre }}</a>
 
                                 </div>
-                                <div class="watchlist">
+                                <div class="watchlist mb-3">
                                     <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
                                 </div>
                             </div>
@@ -312,9 +306,10 @@
                         </div>
                     </div>
                 </div>
+            </section>
 
                 <!--Carousel BONUS-->
-                <div id="video-carousel" class="carousel slide carousel-fade" data-ride="carousel" >
+                <div id="video-carousel" class=" carousel slide carousel-fade" data-ride="carousel" >
                     <!--MODIFICATIONS LI-->
                     <ol class="carousel-indicators">
                         <li data-target="#video-carousel-example" data-slide-to="0" class="active"></li>
@@ -344,7 +339,6 @@
                 </div>
                 <!--Carousel BONUS-->
 
-            </section>
 
             <!-- Train vide -->
             <div class="vide">
@@ -358,13 +352,5 @@
                 </a>
             </div>-->
         </main>
-    </div>
 {% endblock %}
 
-
-
-{% block javascripts %}
-
-<script src="{{ asset('assets/js/script.js') }}"></script>
-
-{% endblock %}

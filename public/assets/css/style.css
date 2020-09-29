@@ -302,7 +302,7 @@ main .page {
 }
 
 .active-pink-4 input[type=text]:focus:not([readonly]) {
-    border: 1px solid #0242a3;
+    border: 1px solid #3aafbf;
     box-shadow: 0 0 0 1px #0143a7;
 }
 

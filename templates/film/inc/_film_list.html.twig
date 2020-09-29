@@ -1,0 +1,26 @@
+<section class="listefilms">
+    <div class="container couleurfont p-3">
+        <h1 id="news">{{ title_section }}</h1>
+        <div class="row py-4">
+            {% for film in films %}
+                <div class="col-12 col-lg-3  ">
+
+                    <div class="film">
+                        <a href="#"> <img src="{{ resize(film.poster, 300, 350) }}" class="w-100 img-responsive" alt=""></a>
+                        <div class="filminfos px-1">
+                            <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
+                            <a href="#">{{ film.titre }}</a>
+
+                        </div>
+                        <div class="watchlist mb-3">
+                            <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>

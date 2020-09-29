@@ -58,23 +58,23 @@
             <div class="container">
 
                 <div class="row">
-                    <img src="img/peli.png" alt="pelicule" class="peli">
+                    <img src="{{ asset('img/peli.png') }}" alt="pelicule" class="peli">
                     <div class="col-lg-5">
                         <a href=" {{ path('home') }}">
-                            <img src="img/bn.png" alt="icone" id="img"
+                            <img src="{{ asset('img/bn.png')}}" alt="icone" id="img"
                                  class="animate__animated animate__backInLeft hoverable d-block pb-2 pr-2 pl-2">
                         </a>
                     </div>
                     <div class="col-lg-7">
 
-                        <form class="active-pink-3 active-pink-4">
+                        <form class="active-pink-3" action="{{ path('film_search') }}">
 
-                            <input class="fas fa-search form-control mb-5 inputradus" type="text" id="input"
+                            <input name="q" class="fas fa-search form-control mb-5 inputradus" type="text" id="input"
                                    placeholder="&laquo; Filez à la recherche du CINÉFILON &raquo;" aria-label="Search"
                                    style="font-family: 'Roboto Condensed', sans-serif ">
                         </form>
 
-                        <img src="img/lefilondesamoureux.png" alt="image le filon des amoureux" id="img2"
+                        <img src="{{asset('img/lefilondesamoureux.png')}}" alt="image le filon des amoureux" id="img2"
                              class="mr-5 d-block w-100 animate__animated animate__backInRight p-0">
 
                         <!-- <marquee direction="left" class="deroulant" scrollamount="5" loop="1">Bienvenue à nos amis Cinéphiles !!! Excellente visite à vous et  laissons place au 7ème Art...</marquee> -->
@@ -183,7 +183,7 @@
                     <a href="#!" class="btn btn-outline-white btn-rounded text-light">Sign up!</a>
                 </li>
             </ul>
-            <div class="col-sm-12 mb-5"><a href="{{ path('home') }}"><img src="img/bn-small.png" alt="image small"></a>©</div>
+            <div class="col-sm-12 mb-5"><a href="{{ path('home') }}"><img src="{{ asset('img/bn-small.png') }}" alt="image small"></a>©</div>
             <p><small class="text-ce
             .03+nter"> Les dévéloppeurs sont Messieurs: <br>
                     Hakim CHOUIOUKH - Konan YAO - Ousseynou FOFANA </small></p>
@@ -200,7 +200,6 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
                     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
                     crossorigin="anonymous"></script>
-
 
         {% endblock %}
 

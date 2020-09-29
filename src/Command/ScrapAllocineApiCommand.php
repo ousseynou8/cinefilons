@@ -115,12 +115,12 @@ class ScrapAllocineApiCommand extends Command
             $client = new Client();
             $crawler = $client->request('GET', $movieApi['link'][6]['href']) ;
             $photos = $crawler->filter('.shot-item .shot-img');
+            $urls = [];
             for($i = 0; $i<$photos->count(); $i++) {
-                dump(str_replace('/c_300_300', '', $photos->getNode($i)->attributes->getNamedItem('data-src')->nodeValue));
+                $urls[] = str_replace('/c_300_300', '', $photos->getNode($i)->attributes->getNamedItem('data-src')->nodeValue);
             }
-            if(isset($photos)) {
-                $movie->setPhotos($photos);
-            }
+            $movie->setPhotos($urls);
+
 
 
 

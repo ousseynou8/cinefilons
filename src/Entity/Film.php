@@ -105,7 +105,7 @@ class Film
     private $critiquesSpectateurs;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="json", length=255, nullable=true)
      */
     private $photos;
 
@@ -348,12 +348,12 @@ class Film
         return $this;
     }
 
-    public function getPhotos(): ?string
+    public function getPhotos(): ?arrray
     {
         return $this->photos;
     }
 
-    public function setPhotos(?string $photos): self
+    public function setPhotos(?array $photos): self
     {
         $this->photos = $photos;
 

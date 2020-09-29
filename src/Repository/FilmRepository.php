@@ -20,8 +20,20 @@ class FilmRepository extends ServiceEntityRepository
     }
 
 
+    public function searchFilm($q)
+    {
+        $explodeQ = explode(" ", $q);
+        //SELECT * From game aas g where g.title like '%et%' OR g.title LIKE '%totam%'
+        $queryBuilder = $this->createQueryBuilder('f');
+        $i=0;
+        foreach ($explodeQ as $word) {
+            $queryBuilder->orWhere('f.titre LIKE :word'.$i);
+            $queryBuilder->setParameter('word'.$i, '%'.$word.'%');
+            $i++;
+        }
 
-
+        return$queryBuilder->getQuery()->getResult();
+    }
 
     // /**
     //  * @return Film[] Returns an array of Film objects

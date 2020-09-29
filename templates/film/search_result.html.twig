@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}Résultat de la recherche{% endblock %}
+
+{% block body %}
+
+
+        {{ "Résultat de la recherche" }}
+    {% include 'film/inc/_film_list.html.twig' with { films: results, title_section: 'Résultat de la recherche ' ~ search } %}
+
+{% endblock %}

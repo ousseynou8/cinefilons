@@ -79,6 +79,42 @@ class Film
      */
     private $commentaires;
 
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $realisateurs;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $acteurs;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $trailer;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $seances;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $critiquesSpectateurs;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photos;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $casting;
+
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
@@ -248,6 +284,102 @@ class Film
                 $commentaire->setFilm(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRealisateurs(): ?string
+    {
+        return $this->realisateurs;
+    }
+
+    public function setRealisateurs(?string $realisateurs): self
+    {
+        $this->realisateurs = $realisateurs;
+
+        return $this;
+    }
+
+    public function getActeurs(): ?string
+    {
+        return $this->acteurs;
+    }
+
+    public function setActeurs(?string $acteurs): self
+    {
+        $this->acteurs = $acteurs;
+
+        return $this;
+    }
+
+    public function getTrailer(): ?string
+    {
+        return $this->trailer;
+    }
+
+    public function setTrailer(?string $trailer): self
+    {
+        $this->trailer = $trailer;
+
+        return $this;
+    }
+
+    public function getSeances(): ?string
+    {
+        return $this->seances;
+    }
+
+    public function setSeances(?string $seances): self
+    {
+        $this->seances = $seances;
+
+        return $this;
+    }
+
+    public function getCritiquesSpectateurs(): ?string
+    {
+        return $this->critiquesSpectateurs;
+    }
+
+    public function setCritiquesSpectateurs(?string $critiquesSpectateurs): self
+    {
+        $this->critiquesSpectateurs = $critiquesSpectateurs;
+
+        return $this;
+    }
+
+    public function getPhotos(): ?string
+    {
+        return $this->photos;
+    }
+
+    public function setPhotos(?string $photos): self
+    {
+        $this->photos = $photos;
+
+        return $this;
+    }
+
+    public function getNo(): ?string
+    {
+        return $this->no;
+    }
+
+    public function setNo(string $no): self
+    {
+        $this->no = $no;
+
+        return $this;
+    }
+
+    public function getCasting(): ?string
+    {
+        return $this->casting;
+    }
+
+    public function setCasting(?string $casting): self
+    {
+        $this->casting = $casting;
 
         return $this;
     }

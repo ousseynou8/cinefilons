@@ -84,6 +84,9 @@
     "egulias/email-validator": {
         "version": "2.1.21"
     },
+    "fabpot/goutte": {
+        "version": "v4.0.0"
+    },
     "imagine/imagine": {
         "version": "1.2.3"
     },

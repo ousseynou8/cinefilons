@@ -5,6 +5,7 @@ namespace App\Command;
 use App\Allocine\AllocineApi;
 use App\Entity\Film;
 use Doctrine\ORM\EntityManagerInterface;
+use Goutte\Client;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -79,10 +80,18 @@ class ScrapAllocineApiCommand extends Command
                 }
             }
             $movie->setDateDeSortie($movieApi['release']['releaseDate']);
-            $movie->setRealisateur($movieApi['castingShort']['directors']);
-            $movie->setActeurs($movieApi['castingShort']['actors']);
-            $movie->setTrailer($movieApi['trailerEmbed']);
 
+            if(isset($movieApi['castingShort']['directors'])) {
+                $movie->setRealisateurs($movieApi['castingShort']['directors']);
+            }
+
+            if(isset($movieApi['castingShort']['actors'])) {
+                $movie->setActeurs($movieApi['castingShort']['actors']);
+            }
+
+            if(isset($movieApi['trailerEmbed'])) {
+                $movie->setTrailer($movieApi['trailerEmbed']);
+            }
 
 
             if(isset($movieApi['synopsisShort'])) {
@@ -92,15 +101,37 @@ class ScrapAllocineApiCommand extends Command
             $movie->setType($movieApi['genre'][0]['$']);
             $movie->setPoster($movieApi['poster']['href']);
             $movie->setNote(0);
+
             if(isset($movieApi['nationality'][0]['$'])){
             $movie->setNationalite($movieApi['nationality'][0]['$']);
             }
 
-            $movie->setActeurs($movieApi['link'][3]['href']);
-            $movie->setActeurs($movieApi['link'][4]['href']);
-            $movie->setActeurs($movieApi['link'][5]['href']);
-            $movie->setActeurs($movieApi['link'][6]['href']);
-            $movie->setActeurs($movieApi['link'][7]['href']);
+            $movie->setSeances($movieApi['link'][3]['href']);
+            $movie->setCritiquesSpectateurs($movieApi['link'][4]['href']);
+            $movie->setCritiquesPresse($movieApi['link'][5]['href']);
+
+
+            //$io = new SymfonyStyle($input, $output);
+            $client = new Client();
+            $crawler = $client->request('GET', $movieApi['link'][6]['href']) ;
+            $photos = $crawler->filter('.shot-item .shot-img');
+            for($i = 0; $i<$photos->count(); $i++) {
+                dump(str_replace('/c_300_300', '', $photos->getNode($i)->attributes->getNamedItem('data-src')->nodeValue));
+            }
+            if(isset($photos)) {
+                $movie->setPhotos($photos);
+            }
+
+
+
+            if(isset($movieApi['link'][7]['href'])) {
+                $movie->setVideos($movieApi['link'][7]['href']);
+            }
+
+            if(isset($movieApi['link'][1]['href'])) {
+                $movie->setCasting($movieApi['link'][1]['href']);
+            }
+
             $this->objectManager->persist($movie);
         }
 

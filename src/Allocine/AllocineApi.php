@@ -86,11 +86,11 @@ class AllocineApi
         return rand(0, 255) . '.' . rand(0, 255) . '.' . rand(0, 255) . '.' . rand(0, 255);
     }
 
-    public function getMovieList()
+    public function getMovieList($count = 500)
     {
         $params = [
             'partner' => $this->_partner_key,
-            'count'=>10,
+            'count'=>$count,
 
             'filter'=>'nowshowing',
             'page'=>1,

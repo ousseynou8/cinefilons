@@ -4,6 +4,7 @@ namespace App\Command;
 
 use App\Allocine\AllocineApi;
 use App\Entity\Film;
+use App\Repository\FilmRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Goutte\Client;
 use Symfony\Component\Console\Command\Command;
@@ -28,14 +29,20 @@ class ScrapAllocineApiCommand extends Command
     private $allocine;
 
     /**
+     * @var FilmRepository
+     */
+    private $filmRepository;
+
+    /**
      * ScrapAllocineApiCommand constructor.
      * @param EntityManagerInterface $objectManager
      */
-    public function __construct(EntityManagerInterface $objectManager, AllocineApi $allocine)
+    public function __construct(EntityManagerInterface $objectManager, AllocineApi $allocine, FilmRepository $filmRepository)
     {
         parent::__construct(self::$defaultName);
         $this->objectManager = $objectManager;
         $this->allocine = $allocine;
+        $this->filmRepository = $filmRepository;
     }
 
     protected function configure()
@@ -61,12 +68,15 @@ class ScrapAllocineApiCommand extends Command
 //            // ...
 //        }
 
-        $json = $this->allocine->getMovieList();
+        $json = $this->allocine->getMovieList(100);
 
         $data = json_decode($json, true);
 
         foreach ($data['feed']['movie'] as $movieApi) {
-            $movie = new Film();
+            $movie = $this->filmRepository->findOneBy(['codeAllocine' => $movieApi['code']]);
+
+            $movie = $movie ?: new Film();
+
             $movie->setTitre($movieApi['originalTitle']);
             if(isset($movieApi['movieCertificate'])) {
                 $movie->setClassification($movieApi['movieCertificate']['certificate']['$']);
@@ -101,6 +111,7 @@ class ScrapAllocineApiCommand extends Command
             $movie->setType($movieApi['genre'][0]['$']);
             $movie->setPoster($movieApi['poster']['href']);
             $movie->setNote(0);
+            $movie->setCodeAllocine($movieApi['code']);
 
             if(isset($movieApi['nationality'][0]['$'])){
             $movie->setNationalite($movieApi['nationality'][0]['$']);

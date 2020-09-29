@@ -114,6 +114,11 @@ class Film
      */
     private $casting;
 
+    /**
+     * @ORM\Column(type="integer", unique=true)
+     */
+    private $codeAllocine;
+
 
     public function __construct()
     {
@@ -380,6 +385,18 @@ class Film
     public function setCasting(?string $casting): self
     {
         $this->casting = $casting;
+
+        return $this;
+    }
+
+    public function getCodeAllocine(): ?int
+    {
+        return $this->codeAllocine;
+    }
+
+    public function setCodeAllocine(int $codeAllocine): self
+    {
+        $this->codeAllocine = $codeAllocine;
 
         return $this;
     }

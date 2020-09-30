@@ -85,6 +85,81 @@
 
     </section>
 
+
+
+
+
+
+
+
+
+    <section id="critiquespresse" class="couleurfont container p-3">
+
+        <h2 class="bgc-titre1">Critiques presse</h2>
+
+        <div id="critiquesspectateurs">
+
+
+
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+
+                    {% for commentaire in film.commentaires %}
+
+                    <div class="row critique">
+
+                        <div class="col-lg-3 user text-center">
+
+                            <p>{{ commentaire.user.firstname }}</p>
+
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <p>{{ commentaire.note }}</p>
+                        </div>
+                        <div class="col-lg-3">
+
+                            <p>{{ commentaire.text }}</p>
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {% if app.user %}
         <section id="commentaire-form" class="container p-3 bg-white mt-3">
             {{ form(commentaire_form) }}

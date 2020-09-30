@@ -12,10 +12,10 @@ class UserController extends AbstractController
     /**
      * @Route("/user/{id}", name="user")
      */
-    public function index(UserRepository $userRepository)
+    public function index(User $user, UserRepository $userRepository)
     {
-        return $this->render('user/details.html.twig', [
-            'users' => $userRepository->findAll(),
+        return $this->render('user/index.html.twig', [
+            'user' => $user
         ]);
     }
 }

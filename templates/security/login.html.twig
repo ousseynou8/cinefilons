@@ -3,8 +3,8 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <div class="bg-light pt-5">
-        <form method="post"  id="form">
+    <div class="bg-light pt-5 pb-2 container">
+        <form method="post"  id="form" class="shadow-lg mb-5 bg-white rounded ">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
@@ -15,10 +15,10 @@
                 </div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal ml-4"> Formulaire</h1>
-            <label for="inputUsername">Email</label>
+            <h1 class="h3 mb-5 font-weight-normal mx-auto"> Formulaire</h1>
+            <label for="inputUsername">Username : </label>
             <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
-            <label for="inputPassword">Password</label>
+            <label for="inputPassword">Password : </label>
             <input type="password" name="password" id="inputPassword" class="form-control" required>
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
@@ -34,11 +34,11 @@
             </div>
             #}
 
-            <button class="btn btn-lg btn-primary mt-3 ml-5" type="submit">
+            <button class="btn btn-lg btn-primary " type="submit">
                 Identifiez-vous
             </button>
 
-            <a href="{{ path('app_register') }}" class="btn btn-lg btn-primary mt-3">
+            <a href="{{ path('app_register') }}" class="btn btn-lg btn-primary">
                 Créer un compte
             </a>
         </form>

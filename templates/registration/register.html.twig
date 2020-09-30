@@ -5,7 +5,7 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-   <div class="bg-light p-3">
+   <div class="bg-light p-3 container">
        {% for flashError in app.flashes('verify_email_error') %}
            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
        {% endfor %}
@@ -14,7 +14,7 @@
 
 
        <h1 class="mx-auto"> Inscription </h1>
-       <div>
+       <div class="shadow-lg p-5 mb-5 bg-white rounded" id="formulaire1">
            {{ form_start(registrationForm ) }}
            {{ form_row(registrationForm.username, {label: 'Nom d\'utilisateur '}) }} <br>
 
@@ -28,7 +28,7 @@
            {{ form_row(registrationForm.email, {label: 'Adresse Email '} ) }}<br>
            {{ form_row(registrationForm.agreeTerms, {label: 'ACCEPTE LES CONDITIONS UTILISEES '} ) }}<br>
 
-           <button type="submit" class="btn btn-primary">Valider</button><br>
+           <button type="submit" class="btn btn-primary btn-lg">Valider</button><br>
            {{ form_end(registrationForm) }}<br>
 
        </div>

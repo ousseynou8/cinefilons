@@ -2,14 +2,9 @@
 
 {% block title %} Details {% endblock %}
 
-{% block nav %}
-
-fhhfhfhfhhf
-
-{% endblock %}
-
 {% block body %}
 
+<div class="container bg-light">
 
     <div id="infosection1" class="col-lg-8 p-3">
         <div id="infotexte" class="w-100">
@@ -69,7 +64,7 @@ fhhfhfhfhhf
     </div>
 
     <div class="vide"></div>
-    <section id="synopsis" class="container p-3 bg-white">
+    <section id="synopsis" class="p-3 bg-white">
 
         <h2 class=" bgc-titre1 mr-2">Synopsis</h2>
 
@@ -90,7 +85,16 @@ fhhfhfhfhhf
 
     </section>
 
-    
+    {% if app.user %}
+        <section id="commentaire-form" class="container p-3 bg-white mt-3">
+            {{ form(commentaire_form) }}
+        </section>
+    {% else %}
+        <a href="{{ path('app_login') }}" class="btn btn-primary">Connectez-vous maintenant pour ajouter un commentaire</a>
+    {% endif %}
+
+
+</div>
 {% endblock %}
 
 {% block javascripts %}

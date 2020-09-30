@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 
+use App\Entity\Commentaire;
 use App\Entity\Film;
+use App\Form\CommentaireType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\FilmRepository;
-use App\Repository\GameRepository;
 use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,10 +19,23 @@ class FilmController extends AbstractController
      * @Route("/film/{id<\d+>}", name="film")
      */
 
-    public function index(Film $film)
+    public function index(Film $film, Request $request, EntityManagerInterface $manager)
     {
+        $commentaire = new Commentaire();
+        $commentaireForm = $this->createForm(CommentaireType::class, $commentaire);
+
+        $commentaireForm->handleRequest($request);
+
+        if($commentaireForm->isSubmitted() && $commentaireForm->isValid() && $this->getUser()) {
+            $commentaire->setFilm($film);
+            $commentaire->setUser($this->getUser());
+            $manager->persist($commentaire);
+            $manager->flush();
+        }
+
         return $this->render('film/details.html.twig', [
-            'film' => $film
+            'film' => $film,
+            'commentaire_form' => $commentaireForm->createView()
         ]);
     }
 

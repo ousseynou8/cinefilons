@@ -13,17 +13,25 @@ body {
     margin: 0 auto;
     width: 700px;
     line-height: 4rem;
+    padding: 75px 121px 0;
  }
-#formulaire {
-    position: absolute;
-    top: 0px;
-    right:  0;
 
-    display: none;
-    width: 70%;
-    text-align: left;
-    border: solid #206585 5px;
+#formulaire1{
+    min-height: 700px !important;
+    margin: 0 auto;
+    width: 700px;
 }
+.btn-primary{
+    background-color: #0682bb;
+    border-color: #0682bb;
+}
+
+
+
+
+
+
+
 
 #synopsis small {
     font-style: italic;

@@ -166,6 +166,11 @@ nav a:hover {
     color: rgb(32, 32, 32);
 }
 
+.dernier_pro{
+
+    border-top :none;
+}
+
 #prochainement li:hover {
     background-color: rgb(32, 32, 32);
     transition: all 0.1s ease-in;

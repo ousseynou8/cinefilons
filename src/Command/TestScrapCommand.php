@@ -34,7 +34,7 @@ class TestScrapCommand extends Command
         //$photos = $crawler->filter('.shot-item .shot-img');
 
         //for($i = 0; $i<$photos->count(); $i++) {
-          //  dump(str_replace('/c_300_300', '', $photos->getNode($i)->attributes->getNamedItem('data-src')->nodeValue));
+          //  dump(str_replace('/c_300_300', '', $photos->getNode s($i)->attributes->getNamedItem('data-src')->nodeValue));
         //}
 
         //$crawler = $client->request('GET', 'http://www.allocine.fr/film/fichefilm-266297/critiques/presse');

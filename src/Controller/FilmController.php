@@ -6,9 +6,7 @@ namespace App\Controller;
 use App\Entity\Film;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\FilmRepository;
-use App\Repository\GameRepository;
 use Symfony\Component\HttpFoundation\Request;
-
 use Symfony\Component\Routing\Annotation\Route;
 
 class FilmController extends AbstractController

@@ -45,7 +45,7 @@ fhhfhfhfhhf
             </div>
 
             <div id="bandeannonce">
-                <iframe src="https://www.youtube.com/embed/OoTx1cYC5u8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="{{ film.trailer }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
         </div>
@@ -76,10 +76,9 @@ fhhfhfhfhhf
         <span class="pb-5"> {{ film.classification }} </span>
         <p class="mt-3 descente p-3"> {{ film.synopsis | striptags }} <br> <br>
 
-            <small>{{ film.dateDeSortie }} / {{ film.nationalite }} / {{ film.type }}
-                De Todd Phillips
-                Avec Joaquin Phoenix, Robert De Niro, Zazie Beetz
-                Nationalités américain, canadien.</small>
+            <small>{{ film.dateDeSortie }} / {{ film.nationalite }} / {{ film.type }}</small>
+            <small> De {{ film.realisateurs }} </small><br>
+            <small>Avec {{ film.acteurs }}</small>
 
 
         </p>
@@ -90,6 +89,76 @@ fhhfhfhfhhf
 
     </section>
 
+    <div class="vide"></div>
+
+    <section class="couleurfont container pt-3 ">
+
+        <h2 class="bgc-titre1" id="photos">Photos</h2>
+
+        <div id="blockphotos" class="row mt-3 mx-0">
+
+            {% for photo in film.photos %}
+
+                <div class="col-lg-2 p-0  ">
+                    <img src="{{ photo }}" alt="joker1" class="img-responsive d-block">
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+        <p class="py-3"><a href="#">Voir toutes les photos </a><i class="fas fa-angle-double-right"></i></p>
+
+    </section>
+
+    <section id="critiquespresse" class="couleurfont container p-3">
+
+        <h2 class="bgc-titre1">Critiques presse</h2>
+
+        <div id="critiquesspectateurs">
+
+
+
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+
+                    {% for critique in film.critiquesPresse %}
+
+                    <div class="row critique">
+
+                        <div class="col-lg-3 user text-center">
+                            <p>{{ critique.newspaper }}</p>
+
+                        </div>
+
+                        <div class="col-lg-9">
+                            <p>
+                                <i class="fas fa-star color text-warning"></i>
+                                <i class="fas fa-star color text-warning"></i>
+                                <i class="fas fa-star color text-warning"></i>
+                                <i class="fas fa-star color text-warning"></i>
+                                <i class="fas fa-star color text-warning"></i>
+                                <small>Publiée le 27 janvier 2020</small>
+                            </p>
+
+                            <p>{{ critique.text }}</p>
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+
+                </div>
+
+            </div>
+
+                <small>Chaque magazine ou journal ayant son propre système de notation, toutes les notes attribuées sont remises au barême de AlloCiné, de 1 à 5 étoiles. Retrouvez plus d'infos sur notre page Revue de presse pour en savoir plus. </small>
+
+
+
+
+    </section>
     
 {% endblock %}
 

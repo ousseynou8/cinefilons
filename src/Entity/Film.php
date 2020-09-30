@@ -60,7 +60,7 @@ class Film
     private $videos;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="json")
      */
     private $critiquesPresse;
 
@@ -226,12 +226,12 @@ class Film
         return $this;
     }
 
-    public function getCritiquesPresse(): ?string
+    public function getCritiquesPresse(): ?array
     {
         return $this->critiquesPresse;
     }
 
-    public function setCritiquesPresse(string $critiquesPresse): self
+    public function setCritiquesPresse(?array $critiquesPresse): self
     {
         $this->critiquesPresse = $critiquesPresse;
 
@@ -353,7 +353,7 @@ class Film
         return $this;
     }
 
-    public function getPhotos(): ?arrray
+    public function getPhotos(): ?array
     {
         return $this->photos;
     }

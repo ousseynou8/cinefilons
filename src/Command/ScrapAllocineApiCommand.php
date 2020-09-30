@@ -68,7 +68,7 @@ class ScrapAllocineApiCommand extends Command
 //            // ...
 //        }
 
-        $json = $this->allocine->getMovieList(100);
+        $json = $this->allocine->getMovieList(10);
 
         $data = json_decode($json, true);
 
@@ -81,14 +81,7 @@ class ScrapAllocineApiCommand extends Command
             if(isset($movieApi['movieCertificate'])) {
                 $movie->setClassification($movieApi['movieCertificate']['certificate']['$']);
             }
-            if(isset($movieApi['link'])) {
-                foreach ($movieApi['link'] as $link) {
-                    if($link['rel'] === 'aco:web_pressreviews') {
-                        $movie->setCritiquesPresse($link['href']);
-                        break;
-                    }
-                }
-            }
+
             $movie->setDateDeSortie($movieApi['release']['releaseDate']);
 
             if(isset($movieApi['castingShort']['directors'])) {
@@ -100,7 +93,7 @@ class ScrapAllocineApiCommand extends Command
             }
 
             if(isset($movieApi['trailerEmbed'])) {
-                $movie->setTrailer($movieApi['trailerEmbed']);
+                $movie->setTrailer(preg_replace('/.*?<iframe.*?src=\'(.*?)\'.*?<\\/iframe>.*/', '$1', $movieApi['trailerEmbed']));
             }
 
 
@@ -119,10 +112,10 @@ class ScrapAllocineApiCommand extends Command
 
             $movie->setSeances($movieApi['link'][3]['href']);
             $movie->setCritiquesSpectateurs($movieApi['link'][4]['href']);
-            $movie->setCritiquesPresse($movieApi['link'][5]['href']);
+            //$movie->setCritiquesPresse($movieApi['link'][5]['href']);
 
 
-            //$io = new SymfonyStyle($input, $output);
+
             $client = new Client();
             $crawler = $client->request('GET', $movieApi['link'][6]['href']) ;
             $photos = $crawler->filter('.shot-item .shot-img');
@@ -131,6 +124,21 @@ class ScrapAllocineApiCommand extends Command
                 $urls[] = str_replace('/c_300_300', '', $photos->getNode($i)->attributes->getNamedItem('data-src')->nodeValue);
             }
             $movie->setPhotos($urls);
+
+            $client = new Client();
+            $crawler = $client->request('GET', $movieApi['link'][5]['href']);
+            $texts = $crawler->filter('.reviews-press-comment .item .text');
+            $newspapers = $crawler->filter('.reviews-press-comment .item .title');
+            $critiques = [];
+            for($i = 0; $i<$texts->count(); $i++) {
+                //dump($newspapers->getNode($i)->textContent);
+
+                $critiques[] = [
+                    'text'=> trim($texts->getNode($i)->textContent),
+                    'newspaper' => trim($newspapers->getNode($i)->textContent)
+                ];
+            }
+            $movie->setCritiquesPresse($critiques);
 
 
 

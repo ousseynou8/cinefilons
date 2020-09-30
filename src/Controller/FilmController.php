@@ -16,10 +16,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class FilmController extends AbstractController
 {
     /**
-     * @Route("/film/{id<\d+>}/{page}", name="film")
+     * @Route("/film/{id<\d+>}/", name="film")
      */
 
-    public function index(Film $film, Request $request, EntityManagerInterface $manager, PaginationInterface $paginator, $page)
+    public function index(Film $film, Request $request, EntityManagerInterface $manager)
     {
         $commentaire = new Commentaire();
         $commentaireForm = $this->createForm(CommentaireType::class, $commentaire);

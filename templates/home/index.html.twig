@@ -95,10 +95,11 @@
                                     <li>Kingsman</li>
                                 </ul>
                             </a>
+                                    <li style="border: solid black 2px" >FILM À VENIR</li>
 
-                                <ul>
-                                    <li><u> Restez connecté !</u></li>
-                                </ul>
+
+                                    <ul class="fa fa-film mt-3 dernier_pro" style="font-size:2.5rem;"></ul>
+
 
 
 
@@ -122,95 +123,25 @@
 
             </div>
             <!--SECTION 3 TOP FILMS US-->
-            <section class="listefilms">
 
-                <div class="container couleurfont p-3">
-                    <h1 id="news">TOP FILMS US</h1>
-                    <div class="row py-4">
-                        {% for film in top_us %}
-                            <div class="col-12 col-lg-3  ">
+            {% include 'film/inc/_film_list.html.twig' with { films: top_us, title_section: 'TOP US' } %}
 
-                                <div class="film">
-                                    <a href="{{ path('film', {id : film.id})}}"><img src="{{ resize(film.poster, 300, 350) }}" class="w-100 img-responsive" alt=""></a>
-                                    <div class="filminfos px-1">
-                                        <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
-                                        <a href="#">{{ film.titre }}</a>
-
-                                                </div>
-                                            <div class="watchlist">
-                                        <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </section>
             <!-- Train vide -->
             <div class="vide">
 
             </div>
+
             <!--SECTION 4 TOP FILMS FRANCAIS-->
-            <section class="listefilms">
+            {% include 'film/inc/_film_list.html.twig' with { films: top_francais, title_section: 'TOP FRANCAIS' } %}
 
-
-                <div class="container couleurfont p-3">
-                    <h1 id="news">TOP FILMS FRANÇAIS</h1>
-                    <div class="row py-4">
-                        {% for film in top_francais %}
-                            <div class="col-12 col-lg-3  ">
-
-                                <div class="film">
-                                    <a href="{{ path('film', {id : film.id})}}"> <img src="{{ resize(film.poster, 300, 350) }}" class="w-100 img-responsive" alt=""></a>
-                                    <div class="filminfos px-1">
-                                        <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
-                                        <a href="#">{{ film.titre }}</a>
-
-                                    </div>
-                                    <div class="watchlist">
-                                        <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        {% endfor %}
-
-                    </div>
-                </div>
-
-            </section>
             <!-- Train vide -->
             <div class="vide">
 
             </div>
             <!--SECTION 5 TOP FILMS ENFANTS-->
-            <section class="listefilms">
-                <div class="container couleurfont p-3">
-                    <h1 id="kids">TOP FILMS POUR ENFANTS</h1>
-                    <div class="row py-4">
-                        {% for film in top_filmsenfants %}
-                            <div class="col-12 col-lg-3  ">
 
-                                <div class="film">
-                                    <a href="{{ path('film', {id : film.id})}} "> <img src="{{ resize(film.poster, 300, 350) }}" class="w-100 img-responsive" alt=""></a>
-                                    <div class="filminfos px-1">
-                                        <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
-                                        <a href="{{ path('film', {id : film.id}) }}">{{ film.titre }}</a>
+            {% include 'film/inc/_film_list.html.twig' with { films: top_filmsenfants, title_section: 'TOP ENFANTS' } %}
 
-                                    </div>
-                                    <div class="watchlist">
-                                        <p><i class="fas fa-plus"></i> <a href="#">Watchlist</a></p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        {% endfor %}
-
-                    </div>
-                </div>
-            </section>
 
             <!-- Train vide -->
             <div class="vide">

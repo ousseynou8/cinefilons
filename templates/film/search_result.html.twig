@@ -6,7 +6,9 @@
 {% block body %}
 
 
+
         {{ "Résultat de la recherche" }}
     {% include 'film/inc/_film_list.html.twig' with { films: results, title_section: 'Résultat de la recherche ' ~ search } %}
 
+    {{ results.count() }}
 {% endblock %}

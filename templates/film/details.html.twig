@@ -40,7 +40,7 @@
             </div>
 
             <div id="bandeannonce">
-                <iframe src="https://www.youtube.com/embed/OoTx1cYC5u8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="{{ film.trailer }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
         </div>
@@ -62,9 +62,9 @@
         </div>
 
     </div>
-
+</div>
     <div class="vide"></div>
-    <section id="synopsis" class="p-3 bg-white">
+    <section id="synopsis" class="container p-3 bg-white">
 
         <h2 class=" bgc-titre1 mr-2">Synopsis</h2>
 
@@ -84,15 +84,7 @@
 
 
     </section>
-
-
-
-
-
-
-
-
-
+    <div class="vide"></div>
     <section id="critiquespresse" class="couleurfont container p-3">
 
         <h2 class="bgc-titre1">Critiques presse</h2>
@@ -104,19 +96,20 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
 
-                    {% for commentaire in film.commentaires %}
+                    {% for commentaire in commentaires %}
 
                     <div class="row critique">
 
                         <div class="col-lg-3 user text-center">
 
+                            <a href="#"><img src="{{ asset('img/profile-placeholder.jpg') }}" width="80" class="img-responsive" alt=""></a>
                             <p>{{ commentaire.user.firstname }}</p>
-
                         </div>
 
                         <div class="col-lg-6">
-
-                            <p>{{ commentaire.note }}</p>
+                            <br>
+                            <p>Note du film</p>
+                            <p>{{ commentaire.note }} / 10</p>
                         </div>
                         <div class="col-lg-3">
 
@@ -130,7 +123,15 @@
 
                 </div>
 
+                <div class="pt-3">
+                    {{ knp_pagination_render(commentaires) }}
+                </div>
+
             </div>
+        </div>
+    </section>
+
+
 
 
 
@@ -169,7 +170,6 @@
     {% endif %}
 
 
-</div>
 {% endblock %}
 
 {% block javascripts %}

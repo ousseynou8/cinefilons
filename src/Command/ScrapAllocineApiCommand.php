@@ -68,7 +68,7 @@ class ScrapAllocineApiCommand extends Command
 //            // ...
 //        }
 
-        $json = $this->allocine->getMovieList(100);
+        $json = $this->allocine->getMovieList(250);
 
         $data = json_decode($json, true);
 

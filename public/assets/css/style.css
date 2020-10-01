@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Roboto Condensed', sans-serif;
-    z-index:30;
+
 }
 
 body {
@@ -25,11 +25,6 @@ body {
     background-color: #0682bb;
     border-color: #0682bb;
 }
-
-
-
-
-
 
 
 
@@ -139,14 +134,14 @@ img:hover {
     filter: brightness(1.15)
 }
 
-nav a {
+#nav a {
     font-size: 1rem;
     color: rgb(9, 98, 214) !important;
     filter: brightness(0);
     font-family: 'Roboto Condensed', sans-serif !important;
 }
 
-nav a:hover {
+#nav a:hover {
     filter: brightness(2);
 }
 

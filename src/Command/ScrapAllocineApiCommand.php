@@ -68,7 +68,7 @@ class ScrapAllocineApiCommand extends Command
 //            // ...
 //        }
 
-        $json = $this->allocine->getMovieList(250);
+        $json = $this->allocine->getMovieList(50);
 
         $data = json_decode($json, true);
 
@@ -141,11 +141,30 @@ class ScrapAllocineApiCommand extends Command
             $movie->setCritiquesPresse($critiques);
 
 
+            if(isset($movieApi['link'][7]['href']))
+            {
+            $client = new Client();
+            $crawler = $client->request('GET', $movieApi['link'][7]['href']) ;
+            $lien = $crawler->filter('.section-trailer .meta-title-link');
+            $urls = [];
+            for($i = 0; $i<$lien->count(); $i++) {
+                if($lien->getNode($i)->attributes->getNamedItem('href')) {
+                    $crawler = $client->request('GET', $lien->getNode($i)->attributes->getNamedItem('href')->nodeValue);
+                    $videos = $crawler->filter('.jw-video');
+                    if($videos->getNode($i)->attributes->getNamedItem('src')) {
+                        $urls = $videos->getNode($i)->attributes->getNamedItem('src')->nodeValue;
+                    }
+                }
+
+            }
+            $movie->setVideos($urls);
+            }
 
 
-            if(isset($movieApi['link'][7]['href'])) {
+            /*if(isset($movieApi['link'][7]['href'])) {
                 $movie->setVideos($movieApi['link'][7]['href']);
             }
+            */
 
             if(isset($movieApi['link'][1]['href'])) {
                 $movie->setCasting($movieApi['link'][1]['href']);

@@ -17,7 +17,7 @@ class CommentaireType extends AbstractType
     {
         $builder
             ->add('note', IntegerType::class, [
-                'help' => 'Votre note doit être comprisen entre 0 et 10.',
+                'help' => 'Votre note doit être comprise entre 0 et 10.',
                 'attr' => [
                     'min' => 0,
                     'max' => 10

@@ -55,7 +55,7 @@ class Film
     private $synopsis;
 
     /**
-     * @ORM\Column(type="string", length=300, nullable=true)
+     * @ORM\Column(type="json", length=300, nullable=true)
      */
     private $videos;
 
@@ -213,12 +213,12 @@ class Film
         return $this;
     }
 
-    public function getVideos(): ?string
+    public function getVideos(): ?array
     {
         return $this->videos;
     }
 
-    public function setVideos(string $videos): self
+    public function setVideos(?array $videos): self
     {
         $this->videos = $videos;
 

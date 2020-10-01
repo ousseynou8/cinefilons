@@ -9,6 +9,7 @@ use App\Form\CommentaireType;
 use App\Repository\CommentaireRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\Pagination\SlidingPagination;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\FilmRepository;
@@ -18,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FilmController extends AbstractController
 {
     /**
-     * @Route("/film/{id<\d+>}/{page}", name="film")
+     * @Route("/film/{id<\d+>}", name="film")
      */
 
     public function index(
@@ -26,10 +27,10 @@ class FilmController extends AbstractController
         Request $request,
         EntityManagerInterface $manager,
         PaginatorInterface $paginator,
-        CommentaireRepository $commentaireRepository,
-        $page
+        CommentaireRepository $commentaireRepository
     )
     {
+        $page = $request->get('page') ?: 1;
         $commentaire = new Commentaire();
         $commentaireForm = $this->createForm(CommentaireType::class, $commentaire);
 
@@ -48,6 +49,8 @@ class FilmController extends AbstractController
                 ->getQuery(),
             $page
         );
+
+        $commentaireForm = $this->createForm(CommentaireType::class, new Commentaire());
 
         return $this->render('film/details.html.twig', [
             'film' => $film,

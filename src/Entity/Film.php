@@ -75,7 +75,7 @@ class Film
     private $nationalite;
 
     /**
-     *²²rgetEntity=Commentaire::class, mappedBy="film", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="film", orphanRemoval=true)
      */
     private $commentaires;
 

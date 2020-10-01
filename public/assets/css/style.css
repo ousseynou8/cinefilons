@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: 'Roboto Condensed', sans-serif;
-    z-index:30;
+
 }
 
 body {
@@ -47,15 +47,13 @@ body {
 
 #bandeannonce {
     width: 75%;
+
 }
 
-#bandeannonce iframe {
+
+#affiche img{
     width: 100%;
-    margin-top: 0;
-}
-
-#affiche {
-    width: 25%;
+    margin-top: 2px;
 }
 
 #filmwatchlist #iconewatchlist {
@@ -72,7 +70,8 @@ body {
 
 #bandeannonce iframe {
     width: 100%;
-    height: 100%;
+    height: 300px;
+  background: none;
 }
 
 #synopsis span {
@@ -217,9 +216,6 @@ main .page {
     padding-top: 1%;
 }
 
-#infosection1 {
-    color: white;
-}
 
 #infos {
     width: 85%;
@@ -286,15 +282,16 @@ main .page {
 #categorie {
     display: flex;
     justify-content: space-evenly;
+    flex-direction: row;
 }
 
 #media {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding-bottom: 7rem;
+    padding: 7px;
     background-color: #2b2b2c;
     margin-top: 2px;
+    margin-bottom: -20px;
 }
 
 #note1 {
@@ -504,7 +501,19 @@ display: block;
     margin: auto;
 }
 
-@media screen and (min-width: 500px) {
+.swiper-container {
+
+}
+
+.swiper-slide {
+    background-position: center !important;
+    background-size: cover !important;
+    width: 300px !important;
+    height: 300px !important;
+}
+
+
+@media screen and (max-width: 768px) {
     #redigez form {
         width: 300px;
     }
@@ -513,8 +522,21 @@ display: block;
         right:75px;
         width: 300px !important;
     }
-
-    h1 {
-        width: 450px;
+    #infos{
+        overflow: hidden;
     }
+
+
+}
+
+@media screen and (min-width: 500px) {
+    #media{
+        height:  300px
+    }
+    #bandeannonce{
+
+        height:  300px
+
+    }
+
 }

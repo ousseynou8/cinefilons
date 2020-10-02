@@ -1,12 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Details {% endblock %}
-
-{% block nav %}
-
-fhhfhfhfhhf
-
-{% endblock %}
+ 
 
 {% block body %}
 
@@ -88,8 +83,6 @@ fhhfhfhfhhf
 
         </p>
 
-        <small class="my-3"><a href="#">Voir le casting et l'équipe technique</a><i
-                    class="fas fa-angle-double-right ml-2"></i></small>
 
 
     </section>
@@ -118,10 +111,47 @@ fhhfhfhfhhf
 
     </section>
     <div class="vide"></div>
+
+    {% if film.critiquesPresse | length != 0 %}
     <section id="critiquespresse" class="couleurfont container p-3">
 
         <h2 class="bgc-titre1">Critiques presse</h2>
 
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                {% for critique in film.critiquesPresse %}
+
+                    <div class="row critique">
+
+                        <div class="col-lg-3 user text-center">
+                            <p>{{ critique.newspaper }}</p>
+
+                        </div>
+
+                        <div class="col-lg-9">
+                            <p>
+                                <i class="fas fa-star color text-warning"></i>
+                                <i class="fas fa-star color text-warning"></i>
+                                <i class="fas fa-star color text-warning"></i>
+                                <i class="fas fa-star color text-warning"></i>
+                                <i class="fas fa-star color text-warning"></i>
+                                <small>Publiée le 27 janvier 2020</small>
+                            </p>
+
+                            <p>{{ critique.text }}</p>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+    </section>
+{% endif %}
         <div id="critiquesspectateurs">
 
 
@@ -165,6 +195,8 @@ fhhfhfhfhhf
 
 
 </div>
+
+        </div>
     </section>
 
 
@@ -172,13 +204,16 @@ fhhfhfhfhhf
 
 
 
-    {% if app.user %}
-        <section id="commentaire-form" class="container p-3 bg-white mt-3">
-            {{ form(commentaire_form) }}
-        </section>
-    {% else %}
-        <a href="{{ path('app_login') }}" class="btn btn-primary">Connectez-vous maintenant pour ajouter un commentaire</a>
-    {% endif %}
+    <div class="container py-3" style="background-color: white">
+
+        {% if app.user %}
+            <section id="commentaire-form" class="container p-3 bg-white mt-3">
+                {{ form(commentaire_form) }}
+            </section>
+        {% else %}
+            <a href="{{ path('app_login') }}" class="btn btn-primary">Connectez-vous maintenant pour ajouter un commentaire</a>
+        {% endif %}
+    </div>
 
 
 {% endblock %}

@@ -137,25 +137,32 @@
 
             </div>
             <!--SECTION 3 TOP FILMS US-->
+<section id="us">
 
-            {% include 'film/inc/_film_list.html.twig' with { films: top_us, title_section: 'TOP US' } %}
+    {% include 'film/inc/_film_list.html.twig' with { films: top_us, title_section: 'TOP US' } %}
 
+</section>
             <!-- Train vide -->
             <div class="vide">
 
             </div>
 
             <!--SECTION 4 TOP FILMS FRANCAIS-->
-            {% include 'film/inc/_film_list.html.twig' with { films: top_francais, title_section: 'TOP FRANCAIS' } %}
+            <section id="french">
 
+                {% include 'film/inc/_film_list.html.twig' with { films: top_francais, title_section: 'TOP FRANCAIS' } %}
+
+            </section>
             <!-- Train vide -->
             <div class="vide">
 
             </div>
             <!--SECTION 5 TOP FILMS ENFANTS-->
+<section id="kids">
 
-            {% include 'film/inc/_film_list.html.twig' with { films: top_filmsenfants, title_section: 'TOP ENFANTS' } %}
+    {% include 'film/inc/_film_list.html.twig' with { films: top_filmsenfants, title_section: 'TOP ENFANTS' } %}
 
+</section>
 
             <!-- Train vide -->
             <div class="vide">

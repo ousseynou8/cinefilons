@@ -213,7 +213,6 @@ main .page {
 }
 
 #infotexte {
-    height: 25%;
     display: flex;
     background-color: rgb(43, 43, 44);
     padding-top: 1%;
@@ -293,8 +292,6 @@ main .page {
     flex-direction: row;
     padding: 7px;
     background-color: #2b2b2c;
-    margin-top: 2px;
-    margin-bottom: -20px;
 }
 
 #note1 {
@@ -434,7 +431,7 @@ iframe {
 
 h1 {
     background-color: #0682bb;
-    width: 80%;
+    width: 450px;
     color: white;
     text-align: center;
     box-shadow: 3px 3px 0px rgb(68, 62, 62);
@@ -529,17 +526,5 @@ display: block;
         overflow: hidden;
     }
 
-
-}
-
-@media screen and (min-width: 500px) {
-    #media{
-        height:  300px
-    }
-    #bandeannonce{
-
-        height:  300px
-
-    }
 
 }

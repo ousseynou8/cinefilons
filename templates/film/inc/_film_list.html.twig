@@ -9,8 +9,8 @@
 
                         <a href="{{ path('film', {id : film.id})}}"> <img src="{{ resize(film.poster, 300, 350) }}" class="w-100 img-responsive" alt=""></a>
                         <div class="filminfos px-1">
-                            <p><i class="fas fa-star color text-warning"></i><span>4.7</span></p>
-                            <a href="{{ path('film', {id : film.id})}}">{{ film.titre }}</>
+                            <p><i class="fas fa-star color text-warning"></i><span>{{ film.note }} <small>/10</small></span></p>
+                            <a href="{{ path('film', {id : film.id})}}">{{ film.titre }}</a>
 
                         </div>
                         <div class="watchlist mb-3">

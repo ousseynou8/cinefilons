@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Details {% endblock %}
- 
+
 
 {% block body %}
 
 
-    <div class="container">
+    <div class="container bg-light">
     <div class="row" >
         <div id="infosection1" class="col-lg-8 p-3">
             <div id="infotexte" class="w-100 text-light" >
@@ -18,24 +18,24 @@
                     <div id="titrenote" class="mb-0 pb-0">
                         <h2 class="mb-5 pl-2 pr-1 bgc-titre">{{ film.titre }}</h2>
                         <div id="note" class="pr-4 pb-1">
-                            <p class="mr-3 item2 h4" id="note1"><i class="fas fa-star color text-warning"></i> {{ film.note }}<span class="h6 text-white-50">/5</span></p>
+                            <p class="mr-3 item2 h4" id="note1"><i class="fas fa-star color text-warning"></i> {{ film.note }}<span class="h6 text-white-50">/10</span></p>
                             <p class="p-1 mb-5 h4" id="notez"><i class="far fa-star"></i><a href="#notez" class="btn btn-primary"><span class="h6"> Notez
                                             ce film</span></a> </p>
                         </div>
 
                     </div>
-                    <div id="categorie" class=" text-center  mt-0 mb-0" >
-                        <p class="pr-5 mb-5 segment ">{{ film.classification }}</p>
-                        <p class="pr-5 mb-5 segment">{{ film.nationalite }}</p>
-                        <p class="pr-5 mb-45segment">{{ film.type }}</p>
-                        <p class="pr-5 mb-5 segment1">{{ film.dateDeSortie }}</p>
+                    <div id="categorie" class=" text-center  mt-0" >
+                        <p class="pr-5 mb-0 segment ">{{ film.classification }}</p>
+                        <p class="pr-5 mb-0 segment">{{ film.nationalite }}</p>
+                        <p class="pr-5 mb-0 segment">{{ film.type }}</p>
+                        <p class="pr-5 mb-0 segment1">{{ film.dateDeSortie }}</p>
                     </div>
 
                 </div>
 
             </div>
 
-            <div id="media" class="mt-3" >
+            <div id="media" >
                 <div id="affiche" class="mt-2">
                     <img src="{{ resize(film.poster, 182, 302) }}" alt="joker">
                 </div>
@@ -149,12 +149,18 @@
 
             </div>
 
+            <small>Chaque magazine ou journal ayant son propre système de notation, toutes les notes attribuées sont remises au barême de AlloCiné, de 1 à 5 étoiles. Retrouvez plus d'infos sur notre page Revue de presse pour en savoir plus. </small>
+
+
         </div>
     </section>
 {% endif %}
+    <div class="vide"></div>
+
+    {% if film.commentaires | length != 0 %}
+    <section id="critiquespresse" class="couleurfont container p-3">
+        <h2 class="bgc-titre1">Critiques Spectateurs</h2>
         <div id="critiquesspectateurs">
-
-
 
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -186,20 +192,21 @@
 
                 </div>
 
+
+
+
                 <div class="pt-3">
                     {{ knp_pagination_render(commentaires) }}
                 </div>
-
-                <small>Chaque magazine ou journal ayant son propre système de notation, toutes les notes attribuées sont remises au barême de AlloCiné, de 1 à 5 étoiles. Retrouvez plus d'infos sur notre page Revue de presse pour en savoir plus. </small>
-
 
 
 </div>
 
         </div>
     </section>
+    {% endif %}
 
-
+    <div class="vide"></div>
 
 
 
@@ -219,6 +226,7 @@
 {% endblock %}
 
 {% block javascripts %}
+
     {{ parent() }}
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

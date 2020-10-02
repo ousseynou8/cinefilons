@@ -45,6 +45,15 @@ class HomeController extends AbstractController
     {
         return $this->render('home/conditions.html.twig');
     }
+
+    /**
+     * @Route("/", name="root")
+     */
+    public function root()
+    {
+        return $this->redirectToRoute('home');
+    }
+
 }
 
 

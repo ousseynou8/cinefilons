@@ -34,7 +34,7 @@ class Commentaire
     private $film;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires", fetch="EAGER")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

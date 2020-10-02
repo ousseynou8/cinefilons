@@ -27,17 +27,18 @@ class TestScrapCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        /*
         $client = new Client();
 
-        //$crawler = $client->request('GET', 'http://www.allocine.fr/film/fichefilm-266297/photos/');
+        $crawler = $client->request('GET', 'http://www.allocine.fr/videos/fichefilm-266297/toutes/');
 
-        //$photos = $crawler->filter('.shot-item .shot-img');
+        $videos = $crawler->filter('.section .section-trailer .meta-title-link');
 
-        //for($i = 0; $i<$photos->count(); $i++) {
-          //  dump(str_replace('/c_300_300', '', $photos->getNode s($i)->attributes->getNamedItem('data-src')->nodeValue));
-        //}
+        for($i = 0; $i<$videos->count(); $i++) {
+            dump($videos->getNode($i)->attributes->getNamedItem('href')->nodeValue);
+        }
 
-        /*$crawler = $client->request('GET', 'http://www.allocine.fr/film/fichefilm-266297/critiques/presse');
+        $crawler = $client->request('GET', 'http://www.allocine.fr/film/fichefilm-266297/critiques/presse');
 
         $texts = $crawler->filter('.reviews-press-comment .item .text');
         $newspapers = $crawler->filter('.reviews-press-comment .item .title');

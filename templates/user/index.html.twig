@@ -1,14 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Profil de l'utilisateur {{ user.firstname }} {{ user.lastname }}{% endblock %}
+{% block title %} {{ user.firstname }} {{ user.lastname }} {% endblock %}
 
 {% block body %}
-    <h1>{{ user.firstname }} {{ user.lastname }}</h1>
-    <h2>Liste des jeux de l'utilisateur</h2>
-    <ul>
 
-    </ul>
-    <a href="{{ path('home') }}">
-        Retour à la page d'accueil
-    </a>
+ <div class="container">
+
+
+
+
+
+  <a href="{{ path('home') }}" class="btn btn-primary">
+   Retour à la page d'accueil
+  </a>
+ </div>
 {% endblock %}

@@ -129,26 +129,24 @@ fhhfhfhfhhf
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
 
-                    {% for critique in film.critiquesPresse %}
+                    {% for commentaire in commentaires %}
 
                     <div class="row critique">
 
-                        <div class="col-lg-3 user text-center">
-                            <p>{{ critique.newspaper }}</p>
+                        <div class="col-lg-2 user text-center" >
 
+                            <a href="#"><img src="{{ asset('img/profile-placeholder.jpg') }}" width="80" class="img-responsive" id="placeholder" alt=""></a>
+                            <p>{{ commentaire.user.firstname }}</p>
                         </div>
 
-                        <div class="col-lg-9">
-                            <p>
-                                <i class="fas fa-star color text-warning"></i>
-                                <i class="fas fa-star color text-warning"></i>
-                                <i class="fas fa-star color text-warning"></i>
-                                <i class="fas fa-star color text-warning"></i>
-                                <i class="fas fa-star color text-warning"></i>
-                                <small>Publiée le 27 janvier 2020</small>
-                            </p>
+                        <div class="col-lg-1">
+                            <br>
+                            <p>Note du film</p>
+                            <p>{{ commentaire.note }} / 10</p>
+                        </div>
+                        <div class="col-lg-8">
 
-                            <p>{{ critique.text }}</p>
+                            <p>{{ commentaire.text }}</p>
                         </div>
 
                     </div>
@@ -158,7 +156,9 @@ fhhfhfhfhhf
 
                 </div>
 
-            </div>
+                <div class="pt-3">
+                    {{ knp_pagination_render(commentaires) }}
+                </div>
 
                 <small>Chaque magazine ou journal ayant son propre système de notation, toutes les notes attribuées sont remises au barême de AlloCiné, de 1 à 5 étoiles. Retrouvez plus d'infos sur notre page Revue de presse pour en savoir plus. </small>
 
@@ -166,7 +166,21 @@ fhhfhfhfhhf
 
 </div>
     </section>
-    
+
+
+
+
+
+
+    {% if app.user %}
+        <section id="commentaire-form" class="container p-3 bg-white mt-3">
+            {{ form(commentaire_form) }}
+        </section>
+    {% else %}
+        <a href="{{ path('app_login') }}" class="btn btn-primary">Connectez-vous maintenant pour ajouter un commentaire</a>
+    {% endif %}
+
+
 {% endblock %}
 
 {% block javascripts %}

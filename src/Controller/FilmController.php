@@ -3,7 +3,14 @@
 namespace App\Controller;
 
 
+use App\Entity\Commentaire;
 use App\Entity\Film;
+use App\Form\CommentaireType;
+use App\Repository\CommentaireRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\Pagination\SlidingPagination;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\FilmRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,10 +22,40 @@ class FilmController extends AbstractController
      * @Route("/film/{id<\d+>}", name="film")
      */
 
-    public function index(Film $film)
+    public function index(
+        Film $film,
+        Request $request,
+        EntityManagerInterface $manager,
+        PaginatorInterface $paginator,
+        CommentaireRepository $commentaireRepository
+    )
     {
+        $page = $request->get('page') ?: 1;
+        $commentaire = new Commentaire();
+        $commentaireForm = $this->createForm(CommentaireType::class, $commentaire);
+
+        $commentaireForm->handleRequest($request);
+        if($commentaireForm->isSubmitted() && $commentaireForm->isValid() && $this->getUser()) {
+            $commentaire->setFilm($film);
+            $commentaire->setUser($this->getUser());
+            $manager->persist($commentaire);
+            $manager->flush();
+        }
+
+        $pagination = $paginator->paginate(
+            $commentaireRepository->createQueryBuilder('c')
+                ->where('c.film = :film')
+                ->setParameter('film', $film)
+                ->getQuery(),
+            $page
+        );
+
+        $commentaireForm = $this->createForm(CommentaireType::class, new Commentaire());
+
         return $this->render('film/details.html.twig', [
-            'film' => $film
+            'film' => $film,
+            'commentaires' => $pagination,
+            'commentaire_form' => $commentaireForm->createView()
         ]);
     }
 
